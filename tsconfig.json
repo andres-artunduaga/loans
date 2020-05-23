@@ -20,6 +20,10 @@
       "es2018",
       "dom"
     ],
+    "paths": {
+      "@core/*": ["app/core/*"],
+      "@shared/*": ["app/shared/*"],
+    },
     "typeRoots": [
       "node_modules/@types",
     ]
