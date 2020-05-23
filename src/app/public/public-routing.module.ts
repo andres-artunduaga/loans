@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HOME } from 'app/core/constants/paths';
+import { HOME } from '@core/constants/paths';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 
 

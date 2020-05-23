@@ -4,8 +4,8 @@ import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/htt
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { EnvironmentService } from 'app/core/services/environment.service';
-import { RequestOptions } from 'app/core/http/request-options';
+import { EnvironmentService } from '@core/services/environment.service';
+import { RequestOptions } from '@core/http/request-options';
 
 @Injectable({
   providedIn: 'root',

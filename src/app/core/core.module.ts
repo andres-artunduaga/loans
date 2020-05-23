@@ -1,8 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Environment } from 'environments/environment';
-import { ENVIRONMENT } from 'app/core/constants/tokens';
-import { ApiService } from 'app/core/http/api.service';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { ApiService } from '@core/http/api.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
