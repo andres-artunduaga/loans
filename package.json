@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "yarn backend:serve & ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prettier:test": "npx prettier@2.0.4 -c \"src/**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
-    "prettier:format": "npx prettier@2.0.4 --write \"src/**/*.{js,json,css,scss,less,md,ts,html,component.html}\""
+    "prettier:format": "npx prettier@2.0.4 --write \"src/**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
+    "backend:serve": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
+    "json-server": "^0.16.1",
     "karma": "~4.4.1",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~2.1.0",
