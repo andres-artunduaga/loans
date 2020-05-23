@@ -1,0 +1,30 @@
+@import '~styles/styles';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: $dark;
+  height: 200px;
+
+  &__logo {
+    align-self: flex-start;
+  }
+
+  &-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__text {
+      margin-top: 40px;
+      font-size: $fs-12;
+      font-weight: lighter;
+      color: white;
+    }
+    &__social {
+      margin-top: 15px;
+      color: white;
+    }
+  }
+}
