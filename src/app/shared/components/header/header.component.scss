@@ -1,0 +1,13 @@
+.header {
+  &-toolbar{
+    display: flex;
+    align-items: center;
+    &__logo{
+      justify-self: flex-end;
+      margin: 5px;
+    }
+    &__separator {
+      flex: 1 1;
+    }
+  }
+}
