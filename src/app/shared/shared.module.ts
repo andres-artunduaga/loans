@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { LogoComponent } from '@shared/components/logo/logo.component';
@@ -10,7 +11,8 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
 
 const materialModules = [
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatDialogModule,
 ]
 
 const sharedComponents = [
