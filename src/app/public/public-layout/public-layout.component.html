@@ -1,5 +1,10 @@
 <div class="public-layout">
-  <header>Header</header>
-  <router-outlet></router-outlet>
-  <footer>Footer</footer>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav >
+      <p><button (click)="sidenav.open()">Toggle</button></p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p><button (click)="sidenav.open()">Open</button></p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
