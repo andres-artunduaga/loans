@@ -1,0 +1,92 @@
+@import '~styles/styles';
+
+.znb-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &-header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: mat-color($primary);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    &-cell {
+      font-size: $fs-14;
+      font-weight: bold;
+      color: $white;
+      padding: 14px 20px 14px 0;
+      display: flex;
+      align-items: center;
+      &:first-of-type {
+        padding-left: 20px;
+      }
+      &:last-of-type {
+        min-width: 120px;
+      }
+    }
+  }
+
+  &-row {
+    display: flex;
+    border-bottom: 1px solid grey;
+    &-cell {
+      font-size: $fs-14;
+      color: mat-color($primary);
+      padding: 16px 20px 16px 0;
+      display: flex;
+      align-items: center;
+      word-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
+
+      &:first-of-type {
+        padding-left: 20px;
+      }
+      &:last-of-type {
+        min-width: 120px;
+      }
+      &__delete-icon {
+        margin-left: 30px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &-viewport {
+    height: 100%;
+    width: 100%;
+  }
+
+  &-zero-state {
+    display: flex;
+    border: 1px solid mat-color($primary);
+    border-top: 0;
+    align-items: center;
+    justify-content: center;
+    max-height: 146px;
+    min-height: 146px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    &__icon {
+      width: 14px;
+      margin-right: 10px;
+    }
+    &__message {
+      font-size: $fs-14;
+      font-weight: bold;
+      color: mat-color($primary);
+    }
+  }
+
+  &-banner-message {
+    background-color: lightblue;
+    color: $white;
+    font-size: $fs-12;
+    padding: 8px 15px;
+  }
+}

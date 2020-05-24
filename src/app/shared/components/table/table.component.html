@@ -1,0 +1,35 @@
+<div class="znb-table">
+  <div class="znb-table-header">
+    <div
+      *ngFor="let field of fieldDefinitions"
+      class="znb-table-header-cell"
+      [ngStyle]="{ width: field.width }"
+    >
+      {{ field.title }}
+    </div>
+  </div>
+  <div class="znb-table-banner-message" *ngIf="bannerMsg">
+    {{ bannerMsg }}
+  </div>
+  <div class="znb-table-zero-state" *ngIf="dataSource?.length === 0">
+    <img class="znb-table-zero-state__icon" [src]="zeroStateIcon" alt="" />
+    <span class="znb-table-zero-state__message">{{ zeroStateMsg }}</span>
+  </div>
+  <cdk-virtual-scroll-viewport itemSize="50" class="znb-table-viewport">
+    <div *cdkVirtualFor="let row of dataSource; index as idx" class="znb-table-row">
+      <div
+        *ngFor="let field of fieldDefinitions"
+        class="znb-table-row-cell"
+        [ngStyle]="{ width: field.width }"
+      >
+        <ng-container
+          *ngTemplateOutlet="
+            templateDefinitions[field.templateName];
+            context: { field: field, row: row, idx: idx }
+          "
+        ></ng-container>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+
