@@ -1,10 +1,15 @@
 import { Component, ChangeDetectionStrategy, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '@core/services/user.service';
+
+import { switchMap } from 'rxjs/operators';
+
+import { MAX_MONTHS_FOR_PAYMENT } from '@core/constants/globals';
 import { User } from '@core/models/user.model';
 import { Credit } from '@core/models/credit.model';
-import { MAX_MONTHS_FOR_PAYMENT } from '@core/constants/globals';
+import { getRandomBoolean } from '@core/utils/functions';
+import { UserService } from '@core/services/user.service';
+import { CreditService } from '@core/services/credit.service';
 
 @Component({
   selector: 'znb-create-user',
@@ -15,16 +20,6 @@ import { MAX_MONTHS_FOR_PAYMENT } from '@core/constants/globals';
 export class CreateUserComponent {
   createUserForm: FormGroup;
 
-  user = {
-    name: '',
-    uid: null,
-    email: '',
-  };
-
-  credit = {
-    amount: 0,
-    paymentDate: '',
-  };
 
   minDate:Date;
   maxDate:Date;
@@ -35,6 +30,7 @@ export class CreateUserComponent {
     private ref: ChangeDetectorRef,
     private fb: FormBuilder,
     private userService: UserService,
+    private creditService: CreditService,
   ) {
 
 
@@ -52,10 +48,20 @@ export class CreateUserComponent {
   }
 
   createUserCredit() {
-    if (this.createUserForm.valid || true) {
-      this.processFormValue(this.createUserForm.value);
-      // TODO: Store data
-      // this.userService.saveUser()
+    if ( this.createUserForm.valid ) {
+      const { user, credit } = this.processFormValue(this.createUserForm.value);
+      this.userService.saveUser(user).pipe(
+        switchMap(
+          userData => {
+            return this.creditService.saveCredit({...credit, userId: userData.id})
+          }
+        )
+      ).subscribe(
+        _ => {
+          this.createUserForm.reset();
+          console.log("Success!!");
+        }
+      );
     }
   }
 
@@ -66,10 +72,11 @@ export class CreateUserComponent {
     const user: User = { name, uid, email };
     const credit: Credit = {
       amount: amount * 1000,
-      paymentDate
+      paymentDate,
+      paid: false,
+      status: getRandomBoolean() ? "approved" : "rejected"
     };
 
-    console.log(user);
     return { user, credit }
   }
 

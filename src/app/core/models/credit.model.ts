@@ -1,9 +1,10 @@
 import { CreditStatus } from '@core/types/credit.types';
 
 export interface Credit {
-  usersId?: number,
+  id?: number,
+  userId?: number,
   amount: number,
   status?: CreditStatus,
-  paid?: boolean
+  paid?: boolean,
   paymentDate?: string, // UTC String
 }
