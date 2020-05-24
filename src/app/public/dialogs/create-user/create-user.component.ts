@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 import { switchMap } from 'rxjs/operators';
 
@@ -47,7 +47,7 @@ export class CreateUserComponent {
     });
   }
 
-  createUserCredit() {
+  createUserCredit( formDirective: FormGroupDirective ) {
     if ( this.createUserForm.valid ) {
       const { user, credit } = this.processFormValue(this.createUserForm.value);
       this.userService.saveUser(user).pipe(
@@ -59,6 +59,8 @@ export class CreateUserComponent {
       ).subscribe(
         _ => {
           this.createUserForm.reset();
+          // Dirty hack to reset the form directive => https://github.com/angular/components/issues/4190
+          formDirective.reset()
           console.log("Success!!");
         }
       );
