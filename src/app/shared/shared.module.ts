@@ -12,14 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { LogoComponent } from '@shared/components/logo/logo.component';
 import { FooterComponent } from '@shared/components/footer/footer.component';
-import { AmountSliderComponent } from './components/amount-slider/amount-slider.component';
-import { MatNativeDateModule } from '@angular/material/core';
-import { TableComponent } from './components/table/table.component';
+import { AmountSliderComponent } from '@shared/components/amount-slider/amount-slider.component';
+import { TableComponent } from '@shared/components/table/table.component';
+import { NavigationComponent } from '@shared/components/navigation/navigation.component';
 
 const materialModules = [
   ScrollingModule,
@@ -32,7 +33,7 @@ const materialModules = [
   MatSliderModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatTooltipModule
+  MatTooltipModule,
 ]
 
 const sharedComponents = [
@@ -41,6 +42,7 @@ const sharedComponents = [
   FooterComponent,
   AmountSliderComponent,
   TableComponent,
+  NavigationComponent,
 ]
 
 @NgModule({

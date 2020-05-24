@@ -1,0 +1,22 @@
+@import "~styles/styles";
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+
+    &-icon {
+      margin-right: 5px;
+    }
+
+    &-link{
+      font-size: $fs-18;
+      color: mat-color($primary);
+    }
+  }
+}
