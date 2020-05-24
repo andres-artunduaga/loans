@@ -2,28 +2,27 @@
 
 .footer {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 20px;
   background-color: $dark;
-  height: 200px;
+  height: $footer-height;
 
   &__logo {
-    align-self: flex-start;
+    align-self: center;
+    
   }
 
   &-contact {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     &__text {
-      margin-top: 40px;
       font-size: $fs-12;
       font-weight: lighter;
       color: white;
     }
     &__social {
-      margin-top: 15px;
       color: white;
     }
   }
