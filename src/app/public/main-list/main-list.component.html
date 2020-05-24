@@ -1,3 +1,49 @@
 <div class="main-list">
-  <button (click)="addUser()" >ADD USER</button>
+  <div class="header">
+    <span class="header__title"> Listado de usuarios</span>
+    <button mat-fab matTooltip="Agregar nuevo usuario" (click)="addUser()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="container">
+    <znb-table
+      class="container__table"
+      [dataSource]="users"
+      [fieldDefinitions]="fieldDefinitions"
+      [templateDefinitions]="{
+        indexCell: indexCell,
+        regularCell: regularCell,
+        actionCell: actionCell
+      }"
+      bannerMsg="Esta lista contiene todos los usuarios registrados"
+    ></znb-table>
+
+    <!-- Templates for cells -->
+
+    <!-- Index Cell -->
+    <ng-template #indexCell let-idx="idx">
+      {{ idx + 1 }}
+    </ng-template>
+
+    <!-- Regular Cell: for only display string data -->
+    <ng-template #regularCell let-field="field" let-row="row">
+      {{ field.getData(row) }}
+    </ng-template>
+
+    <!-- Action Cell: contain action buttons -->
+    <ng-template #actionCell let-field="field" let-row="row">
+      <div class="actions">
+        <button (click)="goToUserDetail(row)" mat-mini-fab matTooltip="Ver detalle de usuario">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+        <button (click)="editUser(row)" mat-mini-fab matTooltip="Editar usuario">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deleteUser(row)" mat-mini-fab matTooltip="Eliminar usuario">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </ng-template>
+  </div>
 </div>
