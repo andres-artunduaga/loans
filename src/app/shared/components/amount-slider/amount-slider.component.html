@@ -9,8 +9,8 @@
       thumbLabel
       [displayWith]="formatLabel"
       tickInterval="1"
-      min="10"
-      max="100"
+      [min]="minLoan"
+      [max]="maxLoan"
       (input)="onChange($event)">
     </mat-slider>
   </div>

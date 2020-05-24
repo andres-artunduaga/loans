@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { MIN_LOAN_VALUE, MAX_LOAN_VALUE } from '@core/constants/globals';
 
 @Component({
   selector: 'znb-amount-slider',
@@ -12,7 +13,9 @@ export class AmountSliderComponent {
   @Input() message = '¿Cuanto dinero necesitas?';
   @Output() amount:EventEmitter<number> = new EventEmitter<number>();
 
-  amountValue = 10000;
+  amountValue = MIN_LOAN_VALUE;
+  minLoan = MIN_LOAN_VALUE / 1000;
+  maxLoan = MAX_LOAN_VALUE / 1000;
 
   constructor() { }
 

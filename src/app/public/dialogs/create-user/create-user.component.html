@@ -1,4 +1,60 @@
 <div class="create-user">
-  Hello!
-  <button (click)="close()" >CLOSE</button>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="close create user dialog"
+    class="create-user__close"
+    (click)="close()"
+  >close</mat-icon>
+
+  <div class="title">
+    Crear nuevo cliente
+  </div>
+
+  <div class="amount-selector">
+    <znb-amount-slider (amount)="updateAmountFormValue($event)"></znb-amount-slider>
+  </div>
+  <div class="wrapper">
+    <form
+      class="form"
+      [formGroup]="createUserForm"
+      (ngSubmit)="createUserCredit()"
+    >
+
+      <mat-form-field class="form-group" *ngIf="createUserForm.get('paymentDate') as paymentDate">
+        <mat-label>¿Cuando puedes pagar?</mat-label>
+        <input matInput type="date" formControlName="paymentDate">
+      </mat-form-field>
+
+
+      <div class="form-group form-group--row">
+        <mat-form-field class="name-field" *ngIf="createUserForm.get('name') as name">
+          <mat-label>Nombre*</mat-label>
+          <input matInput type="text" formControlName="name">
+          <mat-error *ngIf="name.hasError('required')">
+            Por favor ingrese su nombre
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="uid-field" *ngIf="createUserForm.get('uid') as uid">
+          <mat-label>Cédula*</mat-label>
+          <input matInput type="number" formControlName="uid">
+          <mat-error *ngIf="uid.hasError('required')">
+            Por favor ingrese su cédula
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="form-group" *ngIf="createUserForm.get('email') as email">
+        <mat-label>Correo Electrónico*</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">
+          Por favor ingrese su correo electrónico
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          Por favor ingrese un correo electronico válido
+        </mat-error>
+      </mat-form-field>
+      <button class="form-button" type="submit" mat-raised-button color="primary" >Solicitar</button>
+    </form>
+  </div>
 </div>

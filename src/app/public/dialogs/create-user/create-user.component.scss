@@ -1,0 +1,74 @@
+@import '~styles/styles';
+
+.create-user {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 680px;
+
+  &__close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .title{
+    font-size: $fs-24;
+    font-weight: bold;
+    color: mat-color($primary);
+  }
+
+  .amount-selector {
+    margin: 30px 0;
+  }
+
+
+  .wrapper {
+    .form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      &-group {
+        margin-top: 20px;
+        width: 100%;
+
+        &--row{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .name-field {
+            width: 100%;
+            margin-right: 10px;
+          }
+
+          .uid-field {
+            width: 100%;
+            margin-left: 10px;
+          }
+
+        }
+
+      }
+
+      &-button {
+        margin-top: 40px;
+        width: 230px;
+      }
+    }
+
+    .custom-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+
+}
