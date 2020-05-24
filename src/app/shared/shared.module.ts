@@ -9,11 +9,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { LogoComponent } from '@shared/components/logo/logo.component';
 import { FooterComponent } from '@shared/components/footer/footer.component';
 import { AmountSliderComponent } from './components/amount-slider/amount-slider.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const materialModules = [
   MatSidenavModule,
@@ -23,6 +26,8 @@ const materialModules = [
   MatInputModule,
   MatButtonModule,
   MatSliderModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ]
 
 const sharedComponents = [
@@ -36,6 +41,9 @@ const sharedComponents = [
   declarations: [...sharedComponents],
   imports: [
     CommonModule, ReactiveFormsModule, ...materialModules
+  ],
+  providers: [
+    MatDatepickerModule
   ],
   exports: [
     ReactiveFormsModule,
