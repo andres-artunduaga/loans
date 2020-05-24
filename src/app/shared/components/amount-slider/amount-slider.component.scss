@@ -1,0 +1,31 @@
+
+@import '~styles/styles';
+
+.amount-slider {
+
+  padding: 20px;
+  border: 2px solid mat-color($primary);
+  border-radius: 15px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      .title {
+        font-size: $fs-18;
+        font-weight: bold;
+        color: mat-color($primary);
+      }
+      .amount {
+        font-size: $fs-18;
+        font-weight: bold;
+        color: mat-color($accent);
+      }
+    }
+    .slider {
+      margin-top: 20px;
+    }
+  }
+}

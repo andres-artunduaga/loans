@@ -1,0 +1,17 @@
+<div class="amount-slider">
+  <div class="content">
+    <div class="header">
+      <div class="title">{{message}}</div>
+      <div class="amount">${{amountValue | number}}</div>
+    </div>
+    <mat-slider
+      class="slider"
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1"
+      min="10"
+      max="100"
+      (input)="onChange($event)">
+    </mat-slider>
+  </div>
+</div>
