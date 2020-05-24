@@ -1,12 +1,25 @@
 <div class="public-layout">
-  <znb-header class="public-layout__header"></znb-header>
-  <mat-sidenav-container class="public-layout__container">
-    <mat-sidenav #sidenav >
-      <p><button (click)="sidenav.open()">Toggle</button></p>
+  <znb-header class="public-layout__header">
+    <button mat-icon-button (click)="sidenav.toggle()" >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </znb-header>
+  <mat-sidenav-container class="public-layout__container" opened>
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" >
+      <ng-container *ngTemplateOutlet="navigation"></ng-container>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
+    <!-- </mat-sidenav-content> -->
+    <router-outlet></router-outlet>
   </mat-sidenav-container>
   <znb-footer></znb-footer>
 </div>
+
+<!-- Temporal template, we can move this to a separate component -->
+
+<ng-template #navigation>
+  <div class="navigation">
+    <div class="navigation-item"><a [routerLink]="['/']" routerLinkActive="router-link-active" >Lista Principal</a></div>
+    <div class="navigation-item"><a [routerLink]="['/aprobados']" routerLinkActive="router-link-active" >Lista Aprobados</a></div>
+    <div class="navigation-item"><a [routerLink]="['/rechazados']" routerLinkActive="router-link-active" >Lista Rechazados</a></div>
+  </div>
+</ng-template>
