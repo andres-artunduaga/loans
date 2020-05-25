@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HOME } from '@core/constants/paths';
+import {
+  HOME,
+  USER_DETAIL,
+} from '@core/constants/paths';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 
 const routes: Routes = [
@@ -9,11 +12,11 @@ const routes: Routes = [
     component: PublicLayoutComponent,
     children: [
       {
-        path: '',
+        path: HOME,
         loadChildren: () => import('./main-list/main-list.module').then(module => module.MainListModule),
       },
       {
-        path: ':id',
+        path: USER_DETAIL,
         loadChildren: () => import('./user-detail/user-detail.module').then(module => module.UserDetailModule),
       },
     ],

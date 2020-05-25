@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { APPROVED_CREDITS, REJECTED_CREDITS, HOME } from '@core/constants/paths';
 
 @Component({
   selector: 'znb-navigation',
@@ -14,19 +15,19 @@ export class NavigationComponent implements OnInit {
     icon:string
   }[] = [
     {
-      name:"Inicio",
-      link:"/",
-      icon:"home"
+      name: "Inicio",
+      link: `/${HOME}`,
+      icon: "home"
     },
     {
-      name:"Aprobados",
-      link:"/",
-      icon:"check"
+      name: "Aprobados",
+      link: `/${APPROVED_CREDITS}`,
+      icon: "check"
     },
     {
-      name:"Rechazados",
-      link:"/",
-      icon:"close"
+      name: "Rechazados",
+      link: `/${REJECTED_CREDITS}`,
+      icon: "close"
     },
   ]
 

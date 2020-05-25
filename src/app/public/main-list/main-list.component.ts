@@ -5,6 +5,7 @@ import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { User } from '@core/models/user.model';
 import { UserService } from '@core/services/user.service';
 import { Router } from '@angular/router';
+import { USER_DETAIL } from '@core/constants/paths';
 
 @Component({
   selector: 'znb-main-list',
@@ -97,6 +98,6 @@ export class MainListComponent implements OnInit {
   }
 
   goToUserDetail(userData:User){
-    this.router.navigate(['/',userData.id]);
+    this.router.navigate([USER_DETAIL,userData.id]);
   }
 }

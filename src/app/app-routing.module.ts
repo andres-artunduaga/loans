@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HOME } from '@core/constants/paths';
 
 const routes: Routes = [
   {
-    path: '',
+    path: HOME,
     loadChildren: () => import('./public/public.module').then(module => module.PublicModule),
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: HOME,
     pathMatch: 'full',
   },
 ];
