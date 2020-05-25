@@ -1,0 +1,25 @@
+@import "variables";
+
+@mixin media($prop, $width) {
+  @media screen and($prop: $width) {
+    @content;
+  }
+}
+
+@mixin lt-small() {
+  @include media(max-width, $screen-small) {
+    @content;
+  }
+}
+
+@mixin lt-medium() {
+  @include media(max-width, $screen-medium) {
+    @content;
+  }
+}
+
+@mixin lt-large() {
+  @include media(max-width, $screen-large) {
+    @content;
+  }
+}
