@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   HOME,
   USER_DETAIL,
+  APPROVED_CREDITS,
+  REJECTED_CREDITS,
 } from '@core/constants/paths';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 
@@ -18,6 +20,14 @@ const routes: Routes = [
       {
         path: USER_DETAIL,
         loadChildren: () => import('./user-detail/user-detail.module').then(module => module.UserDetailModule),
+      },
+      {
+        path: APPROVED_CREDITS,
+        loadChildren: () => import('./approved-list/approved-list.module').then(module => module.ApprovedListModule),
+      },
+      {
+        path: REJECTED_CREDITS,
+        loadChildren: () => import('./rejected-list/rejected-list.module').then(module => module.RejectedListModule),
       },
     ],
   },
