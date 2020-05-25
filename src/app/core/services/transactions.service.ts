@@ -21,6 +21,11 @@ export class TransactionsService {
   constructor(private envService: EnvironmentService, private api: ApiService) {
     this._globalAmount$ = new BehaviorSubject<number>(this.envService.getEnvironment().initialAmount);
     this.globalAmount$ = this._globalAmount$.asObservable();
+    this.getLatestTx().subscribe(
+      tx => {
+        this._globalAmount$.next(tx[0].total);
+      }
+    )
   }
 
   // Add or Reduce the amount of money only if its an approved transaction
@@ -59,6 +64,10 @@ export class TransactionsService {
   updateTotal(total:number){
     console.log("Updating total...");
     this._globalAmount$.next(total);
+  }
+
+  getLatestTx(){
+    return this.api.get<Transaction[]>(`${this.serviceEndpoint}?_sort=timestamp&_order=desc&_start=0&_end=1`);
   }
 
 }
