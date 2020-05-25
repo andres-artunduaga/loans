@@ -21,6 +21,7 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
 import { AmountSliderComponent } from '@shared/components/amount-slider/amount-slider.component';
 import { TableComponent } from '@shared/components/table/table.component';
 import { NavigationComponent } from '@shared/components/navigation/navigation.component';
+import { RouterModule } from '@angular/router';
 
 const materialModules = [
   ScrollingModule,
@@ -48,7 +49,7 @@ const sharedComponents = [
 @NgModule({
   declarations: [...sharedComponents],
   imports: [
-    CommonModule, ReactiveFormsModule, ...materialModules
+    RouterModule, CommonModule, ReactiveFormsModule, ...materialModules
   ],
   providers: [
     MatDatepickerModule

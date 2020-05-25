@@ -2,7 +2,7 @@
   <ng-container *ngFor="let navItem of navigationItems">
     <div class="navigation__item">
       <mat-icon class="navigation__item-icon" >{{navItem.icon}}</mat-icon>
-      <a routerLink="navItem.link" class="navigation__item-link">{{navItem.name}}</a>
+      <a [routerLink]="navItem.link" class="navigation__item-link">{{navItem.name}}</a>
     </div>
   </ng-container>
 </div>
