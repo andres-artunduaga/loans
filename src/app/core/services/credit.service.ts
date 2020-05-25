@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from '@core/http/api.service';
-import { User } from '@core/models/user.model';
 import { Credit } from '@core/models/credit.model';
 import { toCamelCase } from '@core/utils/rx-ops';
 import { PaidStatus } from '@core/types/credit.types';
+import { TransactionsService } from './transactions.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,10 @@ import { PaidStatus } from '@core/types/credit.types';
 export class CreditService {
   serviceEndpoint = 'credits';
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    private txService:TransactionsService,
+  ) {}
 
   getCredits(): Observable<Credit[]> {
     return this.api.get<Credit[]>(`${this.serviceEndpoint}`).pipe(toCamelCase());
@@ -33,10 +37,20 @@ export class CreditService {
   }
 
   saveCredit(credit: Credit):Observable<Credit>{
-    return this.api.post<Credit>(`${this.serviceEndpoint}`, credit).pipe(toCamelCase());
+    return this.api.post<Credit>(`${this.serviceEndpoint}`, credit).pipe(
+      tap(
+        crd => this.txService.createTxFromCredit(crd).subscribe( _ => {})
+      ),
+      toCamelCase()
+    );
   }
 
   updateCreditPayment(credit:Credit):Observable<Credit>{
-    return this.api.put<Credit>(`${this.serviceEndpoint}/${credit.id}`, credit).pipe(toCamelCase());
+    return this.api.put<Credit>(`${this.serviceEndpoint}/${credit.id}`, credit).pipe(
+      tap(
+        crd => this.txService.createTxFromCredit(crd).subscribe( _ => {})
+      ),
+      toCamelCase()
+    );
   }
 }
