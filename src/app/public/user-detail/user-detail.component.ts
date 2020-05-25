@@ -100,7 +100,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   canAcquireNewCredit():boolean {
-    return this.user.status === "approved";
+    return this.user?.status === "approved";
   }
 
   goBack(){

@@ -43,7 +43,7 @@
     <!-- Action Cell: contain action buttons -->
     <ng-template #actionCell let-field="field" let-row="row">
       <div class="actions">
-        <button (click)="payDebt(row)" mat-mini-fab matTooltip="Pagar credito" [disabled]="!row.paid || !canAcquireNewCredit()">
+        <button (click)="payDebt(row)" mat-mini-fab matTooltip="Pagar credito" [disabled]="row.paid || !canAcquireNewCredit()">
           <mat-icon>payment</mat-icon>
         </button>
       </div>
