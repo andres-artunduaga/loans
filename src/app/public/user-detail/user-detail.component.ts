@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '@core/services/user.service';
 import { NewCreditComponent } from '../dialogs/new-credit/new-credit.component';
 import { DialogService } from '@core/services/dialog.service';
+import { ConfirmPaymentComponent } from '../dialogs/confirm-payment/confirm-payment.component';
 
 @Component({
   selector: 'znb-user-detail',
@@ -95,7 +96,12 @@ export class UserDetailComponent implements OnInit {
 
 
   payDebt(creditData:Credit){
-
+    const dialogRef = this.dialogService.showCustomDialog(ConfirmPaymentComponent, creditData);
+    dialogRef.afterClosed().subscribe(() => {
+      if(this.user?.id){
+        this.retrieveUserData(this.user.id);
+      }
+    });
   }
 
   addCredit(){

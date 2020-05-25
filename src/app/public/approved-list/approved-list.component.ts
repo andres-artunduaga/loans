@@ -4,6 +4,8 @@ import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { Credit } from '@core/models/credit.model';
 import { CreditService } from '@core/services/credit.service';
 import { PaidStatus } from '@core/types/credit.types';
+import { DialogService } from '@core/services/dialog.service';
+import { ConfirmPaymentComponent } from '../dialogs/confirm-payment/confirm-payment.component';
 
 @Component({
   selector: 'znb-approved-list',
@@ -66,6 +68,7 @@ export class ApprovedListComponent implements OnInit {
     private creditService: CreditService,
     private ref:ChangeDetectorRef,
     private location:Location,
+    private dialogService: DialogService,
   ){ }
 
   ngOnInit(): void {
@@ -87,7 +90,11 @@ export class ApprovedListComponent implements OnInit {
   }
 
   payDebt(creditData:Credit){
-
+    const dialogRef = this.dialogService.showCustomDialog(ConfirmPaymentComponent, creditData);
+    dialogRef.afterClosed().subscribe(() => {
+      this.retrieveCredits("unpaid");
+      this.ref.markForCheck();
+    });
   }
 
   goBack(){

@@ -1,0 +1,19 @@
+<div class="new-credit">
+  <mat-icon aria-hidden="false" aria-label="close create user dialog" class="new-credit__close" (click)="close()">close</mat-icon>
+
+  <div class="title">
+    Confirmacion de pago
+  </div>
+
+  <div class="text">
+    Deseas confirmar el pago de tu credito por valor de {{credit.amount}}?
+  </div>
+
+  <div class="buttons">
+    <button class="buttons__item" mat-raised-button color="primary" (click)="payCredit()" >SI</button>
+    <button class="buttons__item" mat-raised-button color="warn" (click)="close()" >NO</button>
+  </div>
+
+</div>
+
+

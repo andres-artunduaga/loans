@@ -33,6 +33,10 @@ export class CreditService {
   }
 
   saveCredit(credit: Credit):Observable<Credit>{
-    return this.api.post<User>(`${this.serviceEndpoint}`, credit).pipe(toCamelCase());
+    return this.api.post<Credit>(`${this.serviceEndpoint}`, credit).pipe(toCamelCase());
+  }
+
+  updateCreditPayment(credit:Credit):Observable<Credit>{
+    return this.api.put<Credit>(`${this.serviceEndpoint}/${credit.id}`, credit).pipe(toCamelCase());
   }
 }
