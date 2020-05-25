@@ -6,5 +6,11 @@
 $white: white;
 $dark: #434245;
 
+// Define palette
 $primary: mat-palette($mat-indigo);
-$accent:  mat-palette($mat-pink, A200, A100, A400);
+$accent: mat-palette($mat-blue-grey);
+$warn: mat-palette($mat-red);
+$orange: mat-palette($mat-orange);
+
+// Create the theme
+$theme: mat-light-theme($primary, $accent, $warn);
