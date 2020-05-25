@@ -19,11 +19,16 @@ export class CreditService {
     return this.api.get<Credit[]>(`${this.serviceEndpoint}`).pipe(toCamelCase());
   }
 
-  getCreditsWithUsers( filterByPaidStatus?:PaidStatus ): Observable<Credit[]> {
-    let endpoint = `${this.serviceEndpoint}?_expand=user`;
+  getApprovedCreditsWithUsers( filterByPaidStatus?:PaidStatus ): Observable<Credit[]> {
+    let endpoint = `${this.serviceEndpoint}?_expand=user&status=approved`;
     if ( filterByPaidStatus ){
       endpoint+=`&paid=${ filterByPaidStatus === "paid" }`
     }
+    return this.api.get<Credit[]>(endpoint).pipe(toCamelCase());
+  }
+
+  getRejectedCreditsWithUsers(): Observable<Credit[]> {
+    const endpoint = `${this.serviceEndpoint}?_expand=user&status=rejected`;
     return this.api.get<Credit[]>(endpoint).pipe(toCamelCase());
   }
 

@@ -73,7 +73,7 @@ export class ApprovedListComponent implements OnInit {
   }
 
   retrieveCredits( filterByPaidStatus?:PaidStatus ){
-    this.creditService.getCreditsWithUsers(filterByPaidStatus).subscribe(
+    this.creditService.getApprovedCreditsWithUsers(filterByPaidStatus).subscribe(
       credits => {
         this.credits = credits;
         this.ref.markForCheck();
