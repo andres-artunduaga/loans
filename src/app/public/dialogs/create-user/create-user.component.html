@@ -5,56 +5,59 @@
     Solicita tu credito
   </div>
 
-  <div class="amount-selector">
-    <znb-amount-slider (amount)="updateAmountFormValue($event)"></znb-amount-slider>
-  </div>
-  <div class="wrapper">
-    <form class="form" [formGroup]="createUserForm" #formDirective (ngSubmit)="createUserCredit(formDirective)">
-      <mat-form-field class="form-group" *ngIf="createUserForm.get('paymentDate') as paymentDate">
-        <mat-label>¿Cuando puedes pagar?</mat-label>
-        <input
-          matInput
-          type="text"
-          autocomplete="nope"
-          placeholder="mm/dd/yyyy"
-          [min]="minDate"
-          [max]="maxDate"
-          [matDatepicker]="picker"
-          formControlName="paymentDate"
-        />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-
-      <div class="form-group form-group--row">
-        <mat-form-field class="name-field" *ngIf="createUserForm.get('name') as name">
-          <mat-label>Nombre*</mat-label>
-          <input matInput type="text" formControlName="name" />
-          <mat-error *ngIf="name.hasError('required')  && name.touched">
-            Por favor ingrese su nombre
+  <div class="content">
+    <div class="amount-selector">
+      <znb-amount-slider (amount)="updateAmountFormValue($event)"></znb-amount-slider>
+    </div>
+    <div class="wrapper">
+      <form class="form" [formGroup]="createUserForm" #formDirective (ngSubmit)="createUserCredit(formDirective)">
+        <mat-form-field class="form-group" *ngIf="createUserForm.get('paymentDate') as paymentDate">
+          <mat-label>¿Cuando puedes pagar?</mat-label>
+          <input
+            matInput
+            type="text"
+            autocomplete="nope"
+            placeholder="mm/dd/yyyy"
+            [min]="minDate"
+            [max]="maxDate"
+            [matDatepicker]="picker"
+            formControlName="paymentDate"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <div class="form-group form-group--row">
+          <mat-form-field class="name-field" *ngIf="createUserForm.get('name') as name">
+            <mat-label>Nombre*</mat-label>
+            <input matInput type="text" formControlName="name" />
+            <mat-error *ngIf="name.hasError('required')  && name.touched">
+              Por favor ingrese su nombre
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="uid-field" *ngIf="createUserForm.get('uid') as uid">
+            <mat-label>Cédula*</mat-label>
+            <input matInput type="number" formControlName="uid" />
+            <mat-error *ngIf="uid.hasError('required') && uid.touched">
+              Por favor ingrese su cédula
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <mat-form-field class="form-group" *ngIf="createUserForm.get('email') as email">
+          <mat-label>Correo Electrónico*</mat-label>
+          <input matInput type="text" formControlName="email" />
+          <mat-error *ngIf="email.hasError('required') && email.touched">
+            Por favor ingrese su correo electrónico
+          </mat-error>
+          <mat-error *ngIf="email.hasError('email')">
+            Por favor ingrese un correo electronico válido
           </mat-error>
         </mat-form-field>
-
-        <mat-form-field class="uid-field" *ngIf="createUserForm.get('uid') as uid">
-          <mat-label>Cédula*</mat-label>
-          <input matInput type="number" formControlName="uid" />
-          <mat-error *ngIf="uid.hasError('required') && uid.touched">
-            Por favor ingrese su cédula
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <mat-form-field class="form-group" *ngIf="createUserForm.get('email') as email">
-        <mat-label>Correo Electrónico*</mat-label>
-        <input matInput type="text" formControlName="email" />
-        <mat-error *ngIf="email.hasError('required') && email.touched">
-          Por favor ingrese su correo electrónico
-        </mat-error>
-        <mat-error *ngIf="email.hasError('email')">
-          Por favor ingrese un correo electronico válido
-        </mat-error>
-      </mat-form-field>
-      <button class="form-button" type="submit" mat-raised-button color="primary" [disabled]="createUserForm.invalid" >Solicitar</button>
-    </form>
+        <button class="form-button" type="submit" mat-raised-button color="primary" [disabled]="createUserForm.invalid" >Solicitar</button>
+      </form>
+    </div>
   </div>
+
 </div>

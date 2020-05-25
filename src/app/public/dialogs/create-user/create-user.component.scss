@@ -1,11 +1,15 @@
 @import '~styles/styles';
 
+:host {
+  position: relative;
+}
+
 .create-user {
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 680px;
+  background-color: white;
 
   &__close {
     position: absolute;
@@ -71,4 +75,48 @@
   }
 
 
+}
+@include lt-small(){
+  .create-user {
+
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+
+    .content {
+      padding: 20px;
+      overflow-y: scroll;
+    }
+
+    .title {
+      padding: 20px;
+      border-bottom: 1px solid mat-color($accent, 50);
+      background-color: mat-color($primary);
+      color: $white;
+      font-size: $fs-18;
+    }
+
+    &__close {
+      top: 10px;
+      right: 10px;
+      color: white;
+    }
+
+    .wrapper {
+      .form{
+        &-group {
+          &--row{
+            flex-direction: column;
+            .name-field, .uid-field {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
