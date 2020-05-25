@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
@@ -7,7 +7,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
   styleUrls: ['./public-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PublicLayoutComponent implements OnInit {
+export class PublicLayoutComponent {
 
   mobileQuery: MediaQueryList;
   // tslint:disable-next-line: variable-name
@@ -17,9 +17,6 @@ export class PublicLayoutComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change',this._mobileQueryListener);
-  }
-
-  ngOnInit(): void {
   }
 
 }
