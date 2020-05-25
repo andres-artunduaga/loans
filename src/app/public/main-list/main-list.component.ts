@@ -4,6 +4,7 @@ import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.
 import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { User } from '@core/models/user.model';
 import { UserService } from '@core/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'znb-main-list',
@@ -45,7 +46,7 @@ export class MainListComponent implements OnInit {
     {
       field: 'status',
       title: 'Estado',
-      getData: user => user.status ? "Aprobado" : "Rechazado",
+      getData: user => user.status === "approved" ? "Aprobado" : "Rechazado",
       width: '100px',
       templateName: 'regularCell',
     },
@@ -64,6 +65,7 @@ export class MainListComponent implements OnInit {
     private dialogService: DialogService,
     private userService: UserService,
     private ref: ChangeDetectorRef,
+    private router:Router,
   ) {}
 
   ngOnInit(): void {
@@ -95,6 +97,6 @@ export class MainListComponent implements OnInit {
   }
 
   goToUserDetail(userData:User){
-    // TOOD
+    this.router.navigate(['/',userData.id]);
   }
 }
