@@ -1,0 +1,53 @@
+<div class="user-detail">
+  <div class="header">
+    <div class="title">
+      <div class="title__back" href="javascript:void(0)" (click)="goBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+        Regresa
+      </div>
+      <div class="title__main">
+        Hola {{user?.name}}
+      </div>
+      <span class="title__secondary"> Aqui puedes ver tu historial de creditos </span>
+    </div>
+    <button mat-fab matTooltip="Solicita un nuevo credito" (click)="addCredit()" [disabled]="!canAcquireNewCredit()" >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="container">
+    <znb-table
+      class="container__table"
+      [dataSource]="user?.credits"
+      [fieldDefinitions]="fieldDefinitions"
+      [templateDefinitions]="{
+        indexCell: indexCell,
+        regularCell: regularCell,
+        actionCell: actionCell
+      }"
+      bannerMsg="Esta lista contiene todos los creditos registrados"
+    ></znb-table>
+
+    <!-- Templates for cells -->
+
+    <!-- Index Cell -->
+    <ng-template #indexCell let-idx="idx">
+      {{ idx + 1 }}
+    </ng-template>
+
+    <!-- Regular Cell: for only display string data -->
+    <ng-template #regularCell let-field="field" let-row="row">
+      {{ field.getData(row) }}
+    </ng-template>
+
+    <!-- Action Cell: contain action buttons -->
+    <ng-template #actionCell let-field="field" let-row="row">
+      <div class="actions">
+        <button (click)="payDebt(row)" mat-mini-fab matTooltip="Pagar credito" [disabled]="!row.paid || !canAcquireNewCredit()">
+          <mat-icon>payment</mat-icon>
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
