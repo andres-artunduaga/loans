@@ -1,7 +1,9 @@
+@import "~styles/styles";
+
 .global-amount {
   margin: 0 20px;
   .total{
-    color: yellow;
+    color: mat-color($orange, A200);
     font-weight: bold;
   }
 }
