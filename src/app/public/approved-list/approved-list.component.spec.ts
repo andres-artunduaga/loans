@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ApprovedListComponent } from './approved-list.component';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SharedModule } from '@shared/shared.module';
+import { DialogService } from '@core/services/dialog.service';
 
 describe('ApprovedListComponent', () => {
   let component: ApprovedListComponent;
@@ -8,7 +12,12 @@ describe('ApprovedListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApprovedListComponent ]
+      declarations: [ ApprovedListComponent ],
+      providers:[
+        DialogService,
+        { provide: ENVIRONMENT, useValue: {} }
+      ],
+      imports:[SharedModule, HttpClientTestingModule]
     })
     .compileComponents();
   }));

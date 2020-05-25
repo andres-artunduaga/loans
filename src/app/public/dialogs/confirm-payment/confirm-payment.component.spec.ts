@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmPaymentComponent } from './confirm-payment.component';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ConfirmPaymentComponent', () => {
   let component: ConfirmPaymentComponent;
@@ -8,7 +11,13 @@ describe('ConfirmPaymentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmPaymentComponent ]
+      declarations: [ ConfirmPaymentComponent ],
+      providers: [
+        { provide: ENVIRONMENT, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
+      ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   }));

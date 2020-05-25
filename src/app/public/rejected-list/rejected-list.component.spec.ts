@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RejectedListComponent } from './rejected-list.component';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { SharedModule } from '@shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RejectedListComponent', () => {
   let component: RejectedListComponent;
@@ -8,7 +11,11 @@ describe('RejectedListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RejectedListComponent ]
+      declarations: [ RejectedListComponent ],
+      providers:[
+        { provide: ENVIRONMENT, useValue: {} }
+      ],
+      imports:[SharedModule, HttpClientTestingModule]
     })
     .compileComponents();
   }));

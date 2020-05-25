@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GlobalAmountComponent } from './global-amount.component';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('GlobalAmountComponent', () => {
   let component: GlobalAmountComponent;
@@ -8,7 +10,13 @@ describe('GlobalAmountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GlobalAmountComponent ]
+      declarations: [ GlobalAmountComponent ],
+      providers:[
+        { provide: ENVIRONMENT, useValue: {} }
+      ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));

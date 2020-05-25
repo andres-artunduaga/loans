@@ -10,6 +10,7 @@ describe('ApiService', () => {
   const env: Environment = {
     production: false,
     apiUrl: 'http://api.url:9999',
+    initialAmount: 100000,
   };
 
   beforeEach(() => {

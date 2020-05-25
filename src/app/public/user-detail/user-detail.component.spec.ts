@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UserDetailComponent } from './user-detail.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DialogService } from '@core/services/dialog.service';
+import { SharedModule } from '@shared/shared.module';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -8,9 +13,19 @@ describe('UserDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserDetailComponent ]
-    })
-    .compileComponents();
+      declarations: [UserDetailComponent],
+      providers: [
+        DialogService,
+        { provide: ENVIRONMENT, useValue: {} },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ id: 123 }),
+          },
+        },
+      ],
+      imports: [SharedModule, HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
