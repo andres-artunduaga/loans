@@ -12,7 +12,7 @@
     {{ bannerMsg }}
   </div>
   <div class="znb-table-zero-state" *ngIf="dataSource?.length === 0">
-    <img class="znb-table-zero-state__icon" [src]="zeroStateIcon" alt="" />
+    <mat-icon class="znb-table-zero-state__icon" color="primary" >{{zeroStateIcon}}</mat-icon>
     <span class="znb-table-zero-state__message">{{ zeroStateMsg }}</span>
   </div>
   <cdk-virtual-scroll-viewport itemSize="50" class="znb-table-viewport">

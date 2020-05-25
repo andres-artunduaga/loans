@@ -13,7 +13,7 @@ export class TableComponent {
   @Input() templateDefinitions!: {
     [name: string]: TemplateRef<any>;
   };
-  @Input() zeroStateIcon = '/assets/images/icons/stop-icon-black.svg';
+  @Input() zeroStateIcon = 'error_outline';
   @Input() zeroStateMsg = 'No hay datos disponibles';
   @Input() bannerMsg = '';
 }
