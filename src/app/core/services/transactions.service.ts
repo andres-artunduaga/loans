@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { EnvironmentService } from './environment.service';
-import { ApiService } from '@core/http/api.service';
+import { ApiService } from '@core/services/api.service';
 import { Transaction } from '@core/models/transaction.model';
 import { TxType, TxStatus } from '@core/types/transaction.types';
 import { tap } from 'rxjs/operators';

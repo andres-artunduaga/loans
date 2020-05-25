@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '@core/http/api.service';
+import { ApiService } from '@core/services/api.service';
 import { Observable } from 'rxjs';
 import { User } from '@core/models/user.model';
 import { toCamelCase } from '@core/utils/rx-ops';
