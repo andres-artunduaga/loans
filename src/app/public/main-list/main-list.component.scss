@@ -47,3 +47,25 @@
       }
   }
 }
+
+@include lt-small(){
+  .main-list {
+    padding: 20px 16px;
+    .header {
+      margin: 0;
+      &__title{
+        display: none;
+      }
+      &__button {
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        z-index: 2;
+      }
+    }
+
+    .container {
+      height: calc(100vh - 80px - ( #{$header-height} + #{$footer-height} ));
+    }
+  }
+}
