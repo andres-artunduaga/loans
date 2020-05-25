@@ -22,6 +22,7 @@ import { AmountSliderComponent } from '@shared/components/amount-slider/amount-s
 import { TableComponent } from '@shared/components/table/table.component';
 import { NavigationComponent } from '@shared/components/navigation/navigation.component';
 import { RouterModule } from '@angular/router';
+import { GlobalAmountComponent } from './components/global-amount/global-amount.component';
 
 const materialModules = [
   ScrollingModule,
@@ -44,6 +45,7 @@ const sharedComponents = [
   AmountSliderComponent,
   TableComponent,
   NavigationComponent,
+  GlobalAmountComponent,
 ]
 
 @NgModule({
