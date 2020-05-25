@@ -1,4 +1,5 @@
 import { CreditStatus } from '@core/types/credit.types';
+import { User } from './user.model';
 
 export interface Credit {
   id?: number,
@@ -7,4 +8,5 @@ export interface Credit {
   status?: CreditStatus,
   paid?: boolean,
   paymentDate?: string, // UTC String
+  user?:User,
 }

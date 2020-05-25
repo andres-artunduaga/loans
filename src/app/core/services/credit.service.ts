@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { ApiService } from '@core/http/api.service';
 import { User } from '@core/models/user.model';
 import { Credit } from '@core/models/credit.model';
-import { toSnakeCase } from '@core/utils/object-transformers';
 import { toCamelCase } from '@core/utils/rx-ops';
+import { PaidStatus } from '@core/types/credit.types';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,14 @@ export class CreditService {
 
   getCredits(): Observable<Credit[]> {
     return this.api.get<Credit[]>(`${this.serviceEndpoint}`).pipe(toCamelCase());
+  }
+
+  getCreditsWithUsers( filterByPaidStatus?:PaidStatus ): Observable<Credit[]> {
+    let endpoint = `${this.serviceEndpoint}?_expand=user`;
+    if ( filterByPaidStatus ){
+      endpoint+=`&paid=${ filterByPaidStatus === "paid" }`
+    }
+    return this.api.get<Credit[]>(endpoint).pipe(toCamelCase());
   }
 
   saveCredit(credit: Credit):Observable<Credit>{
