@@ -30,7 +30,9 @@
 
   &-row {
     display: flex;
-    border-bottom: 1px solid grey;
+    border: 1px solid mat-color($accent,50);;
+    border-top:0;
+
     &-cell {
       font-size: $fs-14;
       color: mat-color($primary);
@@ -82,9 +84,59 @@
   }
 
   &-banner-message {
-    background-color: lightblue;
+    background-color: mat-color($orange);
     color: $white;
     font-size: $fs-12;
+    font-weight: bold;
     padding: 8px 15px;
   }
+
+  @include lt-medium(){
+    &-header{
+      font-size: $fs-14;
+      font-weight: bold;
+      color: $white;
+      padding: 14px 20px;
+    }
+    .znb-table {
+      &-row {
+        flex-direction: column;
+        &-cell{
+          padding-left: 0;
+          display: flex;
+          justify-content: space-between;
+          padding: 0;
+
+          &:nth-child(odd){
+            background-color: mat-color($accent,50);;
+          }
+
+          &-name {
+            display: flex;
+            align-self: flex-start;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            font-size: $fs-16;
+            font-weight: bold;
+            padding: 5px 10px;
+          }
+
+          &-value {
+            display: flex;
+            align-self: flex-start;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            font-size: $fs-16;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-left: 1px solid mat-color($accent,50);;
+          }
+
+        }
+      }
+    }
+  }
+
 }
