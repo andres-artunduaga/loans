@@ -6,10 +6,11 @@ import { PublicLayoutComponent } from 'app/public/public-layout/public-layout.co
 import { SharedModule } from 'app/shared/shared.module';
 import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.component';
 import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
+import { NewCreditComponent } from 'app/public/dialogs/new-credit/new-credit.component';
 
 
 @NgModule({
-  declarations: [PublicLayoutComponent, CreateUserComponent, UserDetailComponent],
+  declarations: [PublicLayoutComponent, CreateUserComponent, UserDetailComponent, NewCreditComponent],
   imports: [
     CommonModule,
     PublicRoutingModule,

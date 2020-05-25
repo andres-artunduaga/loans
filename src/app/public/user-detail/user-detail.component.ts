@@ -5,6 +5,8 @@ import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { Credit } from '@core/models/credit.model';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '@core/services/user.service';
+import { NewCreditComponent } from '../dialogs/new-credit/new-credit.component';
+import { DialogService } from '@core/services/dialog.service';
 
 @Component({
   selector: 'znb-user-detail',
@@ -66,6 +68,7 @@ export class UserDetailComponent implements OnInit {
     private userService:UserService,
     private ref:ChangeDetectorRef,
     private location:Location,
+    private dialogService:DialogService,
   ){}
 
   ngOnInit(): void {
@@ -96,7 +99,12 @@ export class UserDetailComponent implements OnInit {
   }
 
   addCredit(){
-
+    const dialogRef = this.dialogService.showCustomDialog(NewCreditComponent, this.user);
+    dialogRef.afterClosed().subscribe(() => {
+      if(this.user?.id){
+        this.retrieveUserData(this.user.id);
+      }
+    });
   }
 
   canAcquireNewCredit():boolean {
