@@ -7,3 +7,10 @@
     font-weight: bold;
   }
 }
+
+@include lt-small(){
+  .global-amount{
+    margin: 0 10px;
+    font-size: $fs-14;
+  }
+}
