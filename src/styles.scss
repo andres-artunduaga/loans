@@ -14,3 +14,14 @@ body {
   margin: 0;
   font-family: $family-primary;
 }
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: $fs-14;
+  font-weight: bold;
+  color: mat-color($accent,600);
+  &:hover{
+    color: mat-color($accent,800);
+  }
+}
