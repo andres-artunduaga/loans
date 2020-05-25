@@ -46,7 +46,7 @@ export class RejectedListComponent implements OnInit {
       title: 'Estado del credito',
       getData: credit => credit.status === "approved" ? "Aprobado" : "Rechazado",
       width: '20%',
-      templateName: 'regularCell',
+      templateName: 'chipCell',
     },
   ];
 

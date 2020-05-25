@@ -51,7 +51,7 @@ export class UserDetailComponent implements OnInit {
       title: 'Estado de pago',
       getData: credit =>  credit.status === "approved" ? credit.paid ? "Pagado" : "No Pagado" : "N/A",
       width: '20%',
-      templateName: 'regularCell',
+      templateName: 'chipCell',
     },
     {
       field: 'actions',

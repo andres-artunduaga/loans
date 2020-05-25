@@ -14,7 +14,8 @@
       [templateDefinitions]="{
         indexCell: indexCell,
         regularCell: regularCell,
-        actionCell: actionCell
+        actionCell: actionCell,
+        chipCell: chipCell
       }"
       bannerMsg="Esta lista contiene todos los usuarios registrados"
     ></znb-table>
@@ -31,17 +32,23 @@
       {{ field.getData(row) }}
     </ng-template>
 
+    <!-- Chip Cell: for only display string data in a chip -->
+    <ng-template #chipCell let-field="field" let-row="row">
+      <mat-chip-list>
+        <mat-chip
+          class="chip"
+          [ngClass]="{
+            'chip-color--rejected': row.status === 'rejected',
+            'chip-color--approved': row.status === 'approved'
+          }">{{ field.getData(row) }}</mat-chip>
+      </mat-chip-list>
+    </ng-template>
+
     <!-- Action Cell: contain action buttons -->
     <ng-template #actionCell let-field="field" let-row="row">
       <div class="actions">
         <button (click)="goToUserDetail(row)" mat-mini-fab matTooltip="Ver detalle de usuario">
           <mat-icon>remove_red_eye</mat-icon>
-        </button>
-        <button (click)="editUser(row)" mat-mini-fab matTooltip="Editar usuario">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button (click)="deleteUser(row)" mat-mini-fab matTooltip="Eliminar usuario">
-          <mat-icon>delete</mat-icon>
         </button>
       </div>
     </ng-template>

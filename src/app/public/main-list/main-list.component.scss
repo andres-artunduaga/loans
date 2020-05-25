@@ -32,5 +32,18 @@
           margin: 0 3px;
         }
       }
+
+      .chip {
+        &-color{
+          &--approved{
+            background-color: mat-color($mat-green, 600);
+            color: $white;
+          }
+          &--rejected{
+            background-color: mat-color($warn);
+            color: $white;
+          }
+        }
+      }
   }
 }

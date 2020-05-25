@@ -49,7 +49,7 @@ export class ApprovedListComponent implements OnInit {
       title: 'Estado de pago',
       getData: credit => credit.paid ? "Pagado" : "Sin pagar",
       width: '20%',
-      templateName: 'regularCell',
+      templateName: 'chipCell',
     },
     {
       field: 'actions',

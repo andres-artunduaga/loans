@@ -48,8 +48,8 @@ export class MainListComponent implements OnInit {
       field: 'status',
       title: 'Estado',
       getData: user => user.status === "approved" ? "Aprobado" : "Rechazado",
-      width: '100px',
-      templateName: 'regularCell',
+      width: '150px',
+      templateName: 'chipCell',
     },
     {
       field: 'actions',
@@ -87,14 +87,6 @@ export class MainListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
       this.retrieveUsers();
     });
-  }
-
-  editUser(userData:User){
-    // TODO
-  }
-
-  deleteUser(userData:User){
-    // TODO
   }
 
   goToUserDetail(userData:User){

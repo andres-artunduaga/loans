@@ -26,7 +26,8 @@
       [templateDefinitions]="{
         indexCell: indexCell,
         regularCell: regularCell,
-        actionCell: actionCell
+        actionCell: actionCell,
+        chipCell: chipCell
       }"
       bannerMsg="Esta lista contiene todos los creditos aprobados, puedes filtrar los datos pulsando los botones de la parte superior"
     ></znb-table>
@@ -41,6 +42,18 @@
     <!-- Regular Cell: for only display string data -->
     <ng-template #regularCell let-field="field" let-row="row">
       {{ field.getData(row) }}
+    </ng-template>
+
+    <!-- Chip Cell: for only display string data in a chip -->
+    <ng-template #chipCell let-field="field" let-row="row">
+      <mat-chip-list>
+        <mat-chip
+          class="chip"
+          [ngClass]="{
+            'chip-color--paid': row?.paid,
+            'chip-color--unpaid': !row?.paid
+          }">{{ field.getData(row) }}</mat-chip>
+      </mat-chip-list>
     </ng-template>
 
     <!-- Action Cell: contain action buttons -->

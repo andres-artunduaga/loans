@@ -13,6 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 import { HeaderComponent } from '@shared/components/header/header.component';
@@ -36,6 +37,7 @@ const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatTooltipModule,
+  MatChipsModule,
 ]
 
 const sharedComponents = [

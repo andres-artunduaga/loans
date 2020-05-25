@@ -57,5 +57,22 @@
           margin: 0 3px;
         }
       }
+
+      .chip {
+        &-color{
+          &--na{
+            background-color: mat-color($accent, 300);
+            color: $white;
+          }
+          &--paid{
+            background-color: mat-color($mat-green, 600);
+            color: $white;
+          }
+          &--unpaid{
+            background-color: mat-color($warn);
+            color: $white;
+          }
+        }
+      }
   }
 }

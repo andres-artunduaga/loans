@@ -42,5 +42,14 @@
       &__table {
         height: 100%;
       }
+
+      .chip {
+        &-color{
+          &--red{
+            background-color: mat-color($warn);
+            color: $white;
+          }
+        }
+      }
   }
 }
