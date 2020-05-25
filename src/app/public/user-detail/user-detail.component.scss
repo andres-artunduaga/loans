@@ -76,3 +76,31 @@
       }
   }
 }
+
+@include lt-small(){
+  .user-detail {
+    padding: 20px 16px;
+    .header {
+      margin: 0;
+      .title{
+        &__back {
+          font-size: $fs-16;
+          margin-bottom: 10px;
+        }
+        &__main, &__secondary {
+          display: none;
+        }
+        &__button {
+          position: fixed;
+          bottom: 70px;
+          right: 20px;
+          z-index: 2;
+        }
+      }
+    }
+
+    .container {
+      height: calc(100vh - 120px - ( #{$header-height} + #{$footer-height} ));
+    }
+  }
+}
