@@ -1,27 +1,38 @@
-# Loans
+# Loans Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+## Environment
+Angular CLI version 9.1.1.
+Node Version: 14.0.0,
+NPM Version: 6.14.4
 
-## Development server
+## Commands
+Install Project
+```
+yarn install
+```
+Start Project
+```
+yarn start
+```
+Build Project
+```
+yarn build
+```
+Run Tests
+```
+yarn test
+```
+Run Lint
+```
+yarn lint
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Notes
 
-## Code scaffolding
+* Backend developed using json-server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Backend serves when running project `yarn start`
 
-## Build
+* Inital amount can be configured in environment files
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Total amount of money is persisted in the DB and it's loaded when app start
