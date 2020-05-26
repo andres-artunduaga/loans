@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { HOME } from '@core/constants/paths';
 
 @Component({
   selector: 'znb-logo',
@@ -6,11 +8,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./logo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LogoComponent implements OnInit {
+export class LogoComponent {
 
-  constructor() { }
+  @Input() size = "30px";
 
-  ngOnInit(): void {
+  constructor( private route: Router ){}
+
+  goToHome(){
+    this.route.navigate([HOME]);
   }
 
 }
