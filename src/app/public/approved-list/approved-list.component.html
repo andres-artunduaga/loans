@@ -6,15 +6,24 @@
     </div>
     <span class="header__title">Listado de creditos aprobados</span>
     <div class="buttons">
-      <button class="buttons__item" mat-raised-button (click)="togglePaidCreditsVisibility()">
+      <button
+        class="buttons__item"
+        mat-raised-button
+        color="accent"
+        (click)="togglePaidCreditsVisibility()">
         Ver todos
       </button>
-      <button class="buttons__item" mat-raised-button (click)="togglePaidCreditsVisibility('paid')">
+      <button
+        class="buttons__item"
+        mat-raised-button
+        color="accent"
+        (click)="togglePaidCreditsVisibility('paid')">
         Solo Pagados
       </button>
       <button
         class="buttons__item"
         mat-raised-button
+        color="accent"
         (click)="togglePaidCreditsVisibility('unpaid')"
       >
         Sin Pagar
