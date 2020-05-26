@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { APPROVED_CREDITS, REJECTED_CREDITS, HOME } from '@core/constants/paths';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
+import { APPROVED_CREDITS, HOME, REJECTED_CREDITS } from '@core/constants/paths';
 
 @Component({
   selector: 'znb-navigation',

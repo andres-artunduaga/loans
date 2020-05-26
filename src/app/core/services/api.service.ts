@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+import { RequestOptions } from '@core/http/request-options';
+import { EnvironmentService } from '@core/services/environment.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
-import { EnvironmentService } from '@core/services/environment.service';
-import { RequestOptions } from '@core/http/request-options';
 
 @Injectable({
   providedIn: 'root',

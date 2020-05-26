@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '@core/services/api.service';
-import { Observable } from 'rxjs';
+
 import { User } from '@core/models/user.model';
+import { ApiService } from '@core/services/api.service';
 import { toCamelCase } from '@core/utils/rx-ops';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

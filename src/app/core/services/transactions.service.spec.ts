@@ -1,8 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { TransactionsService } from './transactions.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ENVIRONMENT } from '@core/constants/tokens';
+import { TransactionsService } from './transactions.service';
 
 describe('TransactionsService', () => {
   let service: TransactionsService;

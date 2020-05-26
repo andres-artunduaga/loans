@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Location } from "@angular/common";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
 import { Credit } from '@core/models/credit.model';
-import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { CreditService } from '@core/services/credit.service';
+import { ZNBTableFieldDefinition } from '@core/types/table.types';
 
 @Component({
   selector: 'znb-rejected-list',

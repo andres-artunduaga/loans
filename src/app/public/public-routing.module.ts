@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import {
-  HOME,
-  USER_DETAIL,
   APPROVED_CREDITS,
+  HOME,
   REJECTED_CREDITS,
+  USER_DETAIL,
 } from '@core/constants/paths';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 

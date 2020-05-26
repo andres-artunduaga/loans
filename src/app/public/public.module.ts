@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { PublicRoutingModule } from 'app/public/public-routing.module';
-import { PublicLayoutComponent } from 'app/public/public-layout/public-layout.component';
-import { SharedModule } from 'app/shared/shared.module';
 import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.component';
-import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
 import { NewCreditComponent } from 'app/public/dialogs/new-credit/new-credit.component';
+import { PublicLayoutComponent } from 'app/public/public-layout/public-layout.component';
+import { PublicRoutingModule } from 'app/public/public-routing.module';
+import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
+import { SharedModule } from 'app/shared/shared.module';
 import { ConfirmPaymentComponent } from './dialogs/confirm-payment/confirm-payment.component';
 
 

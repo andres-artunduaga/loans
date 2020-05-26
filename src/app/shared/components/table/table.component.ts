@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, TemplateRef, ChangeDetectorRef } from '@angular/core';
-import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TemplateRef } from '@angular/core';
+
+import { ZNBTableFieldDefinition } from '@core/types/table.types';
 
 @Component({
   selector: 'znb-table',

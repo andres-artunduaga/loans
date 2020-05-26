@@ -1,11 +1,11 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { MainListComponent } from './main-list.component';
+import { ENVIRONMENT } from '@core/constants/tokens';
 import { DialogService } from '@core/services/dialog.service';
 import { SharedModule } from '@shared/shared.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ENVIRONMENT } from '@core/constants/tokens';
-import { RouterTestingModule } from '@angular/router/testing';
+import { MainListComponent } from './main-list.component';
 
 describe('MainListComponent', () => {
   let component: MainListComponent;

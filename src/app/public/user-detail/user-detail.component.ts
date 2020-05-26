@@ -1,13 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
-import { User } from '@core/models/user.model';
-import { ZNBTableFieldDefinition } from '@core/types/table.types';
-import { Credit } from '@core/models/credit.model';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '@core/services/user.service';
-import { NewCreditComponent } from '../dialogs/new-credit/new-credit.component';
+
+import { Credit } from '@core/models/credit.model';
+import { User } from '@core/models/user.model';
 import { DialogService } from '@core/services/dialog.service';
+import { UserService } from '@core/services/user.service';
+import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { ConfirmPaymentComponent } from '../dialogs/confirm-payment/confirm-payment.component';
+import { NewCreditComponent } from '../dialogs/new-credit/new-credit.component';
 
 @Component({
   selector: 'znb-user-detail',

@@ -1,4 +1,4 @@
-import { TxType, TxStatus } from '@core/types/transaction.types';
+import { TxStatus, TxType } from '@core/types/transaction.types';
 
 export interface Transaction {
   timestamp: number,

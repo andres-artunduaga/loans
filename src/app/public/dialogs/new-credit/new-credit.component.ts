@@ -1,10 +1,10 @@
-import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 import { MAX_MONTHS_FOR_PAYMENT } from '@core/constants/globals';
-import { User } from '@core/models/user.model';
 import { Credit } from '@core/models/credit.model';
+import { User } from '@core/models/user.model';
 import { CreditService } from '@core/services/credit.service';
 
 @Component({

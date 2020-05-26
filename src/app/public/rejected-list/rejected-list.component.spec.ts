@@ -1,9 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RejectedListComponent } from './rejected-list.component';
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { SharedModule } from '@shared/shared.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RejectedListComponent } from './rejected-list.component';
 
 describe('RejectedListComponent', () => {
   let component: RejectedListComponent;

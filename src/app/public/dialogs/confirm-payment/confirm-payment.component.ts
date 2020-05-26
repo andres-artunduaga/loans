@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { NewCreditComponent } from '../new-credit/new-credit.component';
-import { CreditService } from '@core/services/credit.service';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import { Credit } from '@core/models/credit.model';
+import { CreditService } from '@core/services/credit.service';
+import { NewCreditComponent } from '../new-credit/new-credit.component';
 
 @Component({
   selector: 'znb-confirm-payment',

@@ -1,8 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GlobalAmountComponent } from './global-amount.component';
 import { ENVIRONMENT } from '@core/constants/tokens';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { GlobalAmountComponent } from './global-amount.component';
 
 describe('GlobalAmountComponent', () => {
   let component: GlobalAmountComponent;

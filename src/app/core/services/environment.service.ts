@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { Environment } from 'environments/environment';
 

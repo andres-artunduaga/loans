@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
-import { ZNBTableFieldDefinition } from '@core/types/table.types';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
 import { Credit } from '@core/models/credit.model';
 import { CreditService } from '@core/services/credit.service';
-import { PaidStatus } from '@core/types/credit.types';
 import { DialogService } from '@core/services/dialog.service';
+import { PaidStatus } from '@core/types/credit.types';
+import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { ConfirmPaymentComponent } from '../dialogs/confirm-payment/confirm-payment.component';
 
 @Component({

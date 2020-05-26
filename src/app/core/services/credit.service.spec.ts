@@ -1,9 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { CreditService } from './credit.service';
 import { ENVIRONMENT } from '@core/constants/tokens';
+import { CreditService } from './credit.service';
 import { EnvironmentService } from './environment.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CreditService', () => {
   let service: CreditService;

@@ -1,10 +1,10 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApprovedListComponent } from './approved-list.component';
 import { ENVIRONMENT } from '@core/constants/tokens';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { SharedModule } from '@shared/shared.module';
 import { DialogService } from '@core/services/dialog.service';
+import { SharedModule } from '@shared/shared.module';
+import { ApprovedListComponent } from './approved-list.component';
 
 describe('ApprovedListComponent', () => {
   let component: ApprovedListComponent;

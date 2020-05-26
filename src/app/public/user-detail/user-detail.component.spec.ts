@@ -1,11 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserDetailComponent } from './user-detail.component';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
-import { ENVIRONMENT } from '@core/constants/tokens';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+
+import { ENVIRONMENT } from '@core/constants/tokens';
 import { DialogService } from '@core/services/dialog.service';
 import { SharedModule } from '@shared/shared.module';
+import { of } from 'rxjs';
+import { UserDetailComponent } from './user-detail.component';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;

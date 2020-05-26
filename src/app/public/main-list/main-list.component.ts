@@ -1,11 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { DialogService } from '@core/services/dialog.service';
-import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.component';
-import { ZNBTableFieldDefinition } from '@core/types/table.types';
-import { User } from '@core/models/user.model';
-import { UserService } from '@core/services/user.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { USER_DETAIL } from '@core/constants/paths';
+import { User } from '@core/models/user.model';
+import { DialogService } from '@core/services/dialog.service';
+import { UserService } from '@core/services/user.service';
+import { ZNBTableFieldDefinition } from '@core/types/table.types';
+import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.component';
 
 @Component({
   selector: 'znb-main-list',

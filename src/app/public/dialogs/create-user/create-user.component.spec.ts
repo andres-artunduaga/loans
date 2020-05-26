@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CreateUserComponent } from './create-user.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ENVIRONMENT } from '@core/constants/tokens';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { CreateUserComponent } from './create-user.component';
 
 describe('CreateUserComponent', () => {
   let component: CreateUserComponent;

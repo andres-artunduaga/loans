@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NewCreditComponent } from './new-credit.component';
-import { ENVIRONMENT } from '@core/constants/tokens';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { NewCreditComponent } from './new-credit.component';
 
 describe('NewCreditComponent', () => {
   let component: NewCreditComponent;

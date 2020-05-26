@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
-import { MIN_LOAN_VALUE, MAX_LOAN_VALUE } from '@core/constants/globals';
+
+import { MAX_LOAN_VALUE, MIN_LOAN_VALUE } from '@core/constants/globals';
 
 @Component({
   selector: 'znb-amount-slider',

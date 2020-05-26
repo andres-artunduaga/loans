@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { EnvironmentService } from './environment.service';
-import { ApiService } from '@core/services/api.service';
-import { Transaction } from '@core/models/transaction.model';
-import { TxType, TxStatus } from '@core/types/transaction.types';
-import { tap } from 'rxjs/operators';
+
 import { Credit } from '@core/models/credit.model';
+import { Transaction } from '@core/models/transaction.model';
+import { ApiService } from '@core/services/api.service';
+import { TxStatus, TxType } from '@core/types/transaction.types';
+import { EnvironmentService } from './environment.service';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

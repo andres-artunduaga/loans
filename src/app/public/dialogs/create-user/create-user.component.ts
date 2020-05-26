@@ -1,15 +1,14 @@
-import { Component, ChangeDetectionStrategy, Inject, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
-
-import { switchMap } from 'rxjs/operators';
 
 import { MAX_MONTHS_FOR_PAYMENT } from '@core/constants/globals';
-import { User } from '@core/models/user.model';
 import { Credit } from '@core/models/credit.model';
-import { getRandomBoolean } from '@core/utils/functions';
-import { UserService } from '@core/services/user.service';
+import { User } from '@core/models/user.model';
 import { CreditService } from '@core/services/credit.service';
+import { UserService } from '@core/services/user.service';
+import { getRandomBoolean } from '@core/utils/functions';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'znb-create-user',

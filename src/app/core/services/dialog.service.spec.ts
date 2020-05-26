@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
+import { SharedModule } from '@shared/shared.module';
 import { DialogService } from './dialog.service';
 import { EnvironmentService } from './environment.service';
-import { SharedModule } from '@shared/shared.module';
 
 describe('DialogService', () => {
   let service: DialogService;

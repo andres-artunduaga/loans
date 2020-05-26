@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { UserDetailRoutingModule } from './user-detail-routing.module';
 import { DialogService } from '@core/services/dialog.service';
+import { UserDetailRoutingModule } from './user-detail-routing.module';
 
 
 @NgModule({
