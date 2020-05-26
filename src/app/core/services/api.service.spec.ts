@@ -16,7 +16,7 @@ describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [{ provide: ENVIRONMENT, useValue: env }],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(ApiService);
   });

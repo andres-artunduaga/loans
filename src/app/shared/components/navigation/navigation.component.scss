@@ -1,4 +1,4 @@
-@import "~styles/styles";
+@import '~styles/styles';
 
 .navigation {
   display: flex;
@@ -12,7 +12,7 @@
 
     &:hover {
       background-color: mat-color($accent);
-      color: mat-color($accent,A100);
+      color: mat-color($accent, A100);
     }
 
     &-icon {
@@ -21,7 +21,7 @@
 
     &--active {
       background-color: mat-color($accent);
-      color: mat-color($accent,A100);
+      color: mat-color($accent, A100);
     }
   }
 }

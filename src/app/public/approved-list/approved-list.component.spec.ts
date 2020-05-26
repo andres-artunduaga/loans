@@ -12,14 +12,10 @@ describe('ApprovedListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApprovedListComponent ],
-      providers:[
-        DialogService,
-        { provide: ENVIRONMENT, useValue: {} }
-      ],
-      imports:[SharedModule, HttpClientTestingModule]
-    })
-    .compileComponents();
+      declarations: [ApprovedListComponent],
+      providers: [DialogService, { provide: ENVIRONMENT, useValue: {} }],
+      imports: [SharedModule, HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

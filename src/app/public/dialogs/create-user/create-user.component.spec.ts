@@ -12,15 +12,14 @@ describe('CreateUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateUserComponent ],
+      declarations: [CreateUserComponent],
       providers: [
         { provide: ENVIRONMENT, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },
       ],
-      imports: [ ReactiveFormsModule, HttpClientTestingModule ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule, HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

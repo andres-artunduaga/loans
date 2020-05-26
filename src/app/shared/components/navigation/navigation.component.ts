@@ -6,35 +6,32 @@ import { APPROVED_CREDITS, HOME, REJECTED_CREDITS } from '@core/constants/paths'
   selector: 'znb-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent implements OnInit {
-
-  navigationItems:{
-    name:string,
-    link:string,
-    icon:string
+  navigationItems: {
+    name: string;
+    link: string;
+    icon: string;
   }[] = [
     {
-      name: "Inicio",
+      name: 'Inicio',
       link: `/${HOME}`,
-      icon: "home"
+      icon: 'home',
     },
     {
-      name: "Aprobados",
+      name: 'Aprobados',
       link: `/${APPROVED_CREDITS}`,
-      icon: "check"
+      icon: 'check',
     },
     {
-      name: "Rechazados",
+      name: 'Rechazados',
       link: `/${REJECTED_CREDITS}`,
-      icon: "close"
+      icon: 'close',
     },
-  ]
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

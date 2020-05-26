@@ -41,7 +41,9 @@
           [ngClass]="{
             'chip-color--rejected': row.status === 'rejected',
             'chip-color--approved': row.status === 'approved'
-          }">{{ field.getData(row) }}</mat-chip>
+          }"
+          >{{ field.getData(row) }}</mat-chip
+        >
       </mat-chip-list>
     </ng-template>
 

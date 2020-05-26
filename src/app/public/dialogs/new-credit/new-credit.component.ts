@@ -11,13 +11,13 @@ import { CreditService } from '@core/services/credit.service';
   selector: 'znb-new-credit',
   templateUrl: './new-credit.component.html',
   styleUrls: ['./new-credit.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewCreditComponent {
   newCreditForm: FormGroup;
-  minDate:Date;
-  maxDate:Date;
-  user:User;
+  minDate: Date;
+  maxDate: Date;
+  user: User;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -25,11 +25,9 @@ export class NewCreditComponent {
     private fb: FormBuilder,
     private creditService: CreditService,
   ) {
-
-
     this.minDate = new Date();
     this.maxDate = new Date();
-    this.maxDate.setMonth(this.maxDate.getMonth()+MAX_MONTHS_FOR_PAYMENT);
+    this.maxDate.setMonth(this.maxDate.getMonth() + MAX_MONTHS_FOR_PAYMENT);
     this.user = this.data;
 
     this.newCreditForm = this.fb.group({
@@ -38,17 +36,15 @@ export class NewCreditComponent {
     });
   }
 
-  createUserCredit( formDirective: FormGroupDirective ) {
-    if ( this.newCreditForm.valid ) {
+  createUserCredit(formDirective: FormGroupDirective) {
+    if (this.newCreditForm.valid) {
       const credit = this.processFormValue(this.newCreditForm.value);
-      this.creditService.saveCredit({...credit, userId: this.user.id}).subscribe(
-        _ => {
-          this.newCreditForm.reset();
-          // Dirty hack to reset the form directive => https://github.com/angular/components/issues/4190
-          formDirective.reset()
-          this.close();
-        }
-      );
+      this.creditService.saveCredit({ ...credit, userId: this.user.id }).subscribe(_ => {
+        this.newCreditForm.reset();
+        // Dirty hack to reset the form directive => https://github.com/angular/components/issues/4190
+        formDirective.reset();
+        this.close();
+      });
     }
   }
 
@@ -58,7 +54,7 @@ export class NewCreditComponent {
       amount: amount * 1000,
       paymentDate,
       paid: false,
-      status: "approved"
+      status: 'approved',
     };
     return credit;
   }
@@ -70,5 +66,4 @@ export class NewCreditComponent {
   close() {
     this.dialogRef.close(null);
   }
-
 }

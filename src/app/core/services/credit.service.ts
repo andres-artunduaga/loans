@@ -9,24 +9,21 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CreditService {
   serviceEndpoint = 'credits';
 
-  constructor(
-    private api: ApiService,
-    private txService:TransactionsService,
-  ) {}
+  constructor(private api: ApiService, private txService: TransactionsService) {}
 
   getCredits(): Observable<Credit[]> {
     return this.api.get<Credit[]>(`${this.serviceEndpoint}`).pipe(toCamelCase());
   }
 
-  getApprovedCreditsWithUsers( filterByPaidStatus?:PaidStatus ): Observable<Credit[]> {
+  getApprovedCreditsWithUsers(filterByPaidStatus?: PaidStatus): Observable<Credit[]> {
     let endpoint = `${this.serviceEndpoint}?_expand=user&status=approved`;
-    if ( filterByPaidStatus ){
-      endpoint+=`&paid=${ filterByPaidStatus === "paid" }`
+    if (filterByPaidStatus) {
+      endpoint += `&paid=${filterByPaidStatus === 'paid'}`;
     }
     return this.api.get<Credit[]>(endpoint).pipe(toCamelCase());
   }
@@ -36,21 +33,17 @@ export class CreditService {
     return this.api.get<Credit[]>(endpoint).pipe(toCamelCase());
   }
 
-  saveCredit(credit: Credit):Observable<Credit>{
+  saveCredit(credit: Credit): Observable<Credit> {
     return this.api.post<Credit>(`${this.serviceEndpoint}`, credit).pipe(
-      tap(
-        crd => this.txService.createTxFromCredit(crd).subscribe( _ => {})
-      ),
-      toCamelCase()
+      tap(crd => this.txService.createTxFromCredit(crd).subscribe(_ => {})),
+      toCamelCase(),
     );
   }
 
-  updateCreditPayment(credit:Credit):Observable<Credit>{
+  updateCreditPayment(credit: Credit): Observable<Credit> {
     return this.api.put<Credit>(`${this.serviceEndpoint}/${credit.id}`, credit).pipe(
-      tap(
-        crd => this.txService.createTxFromCredit(crd).subscribe( _ => {})
-      ),
-      toCamelCase()
+      tap(crd => this.txService.createTxFromCredit(crd).subscribe(_ => {})),
+      toCamelCase(),
     );
   }
 }

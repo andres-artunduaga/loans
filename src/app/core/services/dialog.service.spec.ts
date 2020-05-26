@@ -10,7 +10,7 @@ describe('DialogService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [EnvironmentService, DialogService],
-      imports: [SharedModule]
+      imports: [SharedModule],
     });
     service = TestBed.inject(DialogService);
   });

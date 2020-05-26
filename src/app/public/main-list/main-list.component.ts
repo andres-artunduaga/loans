@@ -15,8 +15,7 @@ import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainListComponent implements OnInit {
-
-  fieldDefinitions:ZNBTableFieldDefinition<User>[] = [
+  fieldDefinitions: ZNBTableFieldDefinition<User>[] = [
     {
       field: 'index',
       title: '#',
@@ -48,7 +47,7 @@ export class MainListComponent implements OnInit {
     {
       field: 'status',
       title: 'Estado',
-      getData: user => user.status === "approved" ? "Aprobado" : "Rechazado",
+      getData: user => (user.status === 'approved' ? 'Aprobado' : 'Rechazado'),
       width: '150px',
       templateName: 'chipCell',
     },
@@ -59,28 +58,26 @@ export class MainListComponent implements OnInit {
       width: '200px',
       templateName: 'actionCell',
     },
-  ]
+  ];
 
-  users:User[];
+  users: User[];
 
   constructor(
     private dialogService: DialogService,
     private userService: UserService,
     private ref: ChangeDetectorRef,
-    private router:Router,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.retrieveUsers();
   }
 
-  retrieveUsers(){
-    this.userService.getUsers().subscribe(
-      users => {
-        this.users = users;
-        this.ref.markForCheck();
-      }
-    )
+  retrieveUsers() {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+      this.ref.markForCheck();
+    });
   }
 
   addUser() {
@@ -90,7 +87,7 @@ export class MainListComponent implements OnInit {
     });
   }
 
-  goToUserDetail(userData:User){
-    this.router.navigate([USER_DETAIL,userData.id]);
+  goToUserDetail(userData: User) {
+    this.router.navigate([USER_DETAIL, userData.id]);
   }
 }

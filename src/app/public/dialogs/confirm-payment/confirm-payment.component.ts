@@ -9,32 +9,28 @@ import { NewCreditComponent } from '../new-credit/new-credit.component';
   selector: 'znb-confirm-payment',
   templateUrl: './confirm-payment.component.html',
   styleUrls: ['./confirm-payment.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmPaymentComponent {
-
-  credit:Credit;
+  credit: Credit;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<NewCreditComponent>,
     private creditService: CreditService,
-  ){
+  ) {
     this.credit = this.data;
     console.log(this.credit);
   }
 
-  payCredit(){
+  payCredit() {
     this.credit.paid = true;
-    this.creditService.updateCreditPayment(this.credit).subscribe(
-      _ => {
-        this.close();
-      }
-    )
+    this.creditService.updateCreditPayment(this.credit).subscribe(_ => {
+      this.close();
+    });
   }
 
-  close(){
-    this.dialogRef.close()
+  close() {
+    this.dialogRef.close();
   }
-
 }

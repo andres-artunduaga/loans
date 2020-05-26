@@ -10,15 +10,10 @@ describe('GlobalAmountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GlobalAmountComponent ],
-      providers:[
-        { provide: ENVIRONMENT, useValue: {} }
-      ],
-      imports: [
-        HttpClientTestingModule
-      ]
-    })
-    .compileComponents();
+      declarations: [GlobalAmountComponent],
+      providers: [{ provide: ENVIRONMENT, useValue: {} }],
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -12,11 +12,10 @@ import { ConfirmPaymentComponent } from '../dialogs/confirm-payment/confirm-paym
   selector: 'znb-approved-list',
   templateUrl: './approved-list.component.html',
   styleUrls: ['./approved-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ApprovedListComponent implements OnInit {
-
-  fieldDefinitions:ZNBTableFieldDefinition<Credit>[] = [
+  fieldDefinitions: ZNBTableFieldDefinition<Credit>[] = [
     {
       field: 'index',
       title: '#',
@@ -48,7 +47,7 @@ export class ApprovedListComponent implements OnInit {
     {
       field: 'status',
       title: 'Estado de pago',
-      getData: credit => credit.paid ? "Pagado" : "Sin pagar",
+      getData: credit => (credit.paid ? 'Pagado' : 'Sin pagar'),
       width: '20%',
       templateName: 'chipCell',
     },
@@ -61,45 +60,42 @@ export class ApprovedListComponent implements OnInit {
     },
   ];
 
-  credits:Credit[];
+  credits: Credit[];
 
-  paidStatus?:PaidStatus
+  paidStatus?: PaidStatus;
 
   constructor(
     private creditService: CreditService,
-    private ref:ChangeDetectorRef,
-    private location:Location,
+    private ref: ChangeDetectorRef,
+    private location: Location,
     private dialogService: DialogService,
-  ){ }
+  ) {}
 
   ngOnInit(): void {
-    this.retrieveCredits("unpaid");
+    this.retrieveCredits('unpaid');
   }
 
-  retrieveCredits( filterByPaidStatus?:PaidStatus ){
-    this.creditService.getApprovedCreditsWithUsers(filterByPaidStatus).subscribe(
-      credits => {
-        this.credits = credits;
-        this.ref.markForCheck();
-      }
-    )
-  }
-
-  togglePaidCreditsVisibility(status?:PaidStatus){
-    this.retrieveCredits(status);
-    this.ref.markForCheck();
-  }
-
-  payDebt(creditData:Credit){
-    const dialogRef = this.dialogService.showCustomDialog(ConfirmPaymentComponent, creditData);
-    dialogRef.afterClosed().subscribe(() => {
-      this.retrieveCredits("unpaid");
+  retrieveCredits(filterByPaidStatus?: PaidStatus) {
+    this.creditService.getApprovedCreditsWithUsers(filterByPaidStatus).subscribe(credits => {
+      this.credits = credits;
       this.ref.markForCheck();
     });
   }
 
-  goBack(){
-    this.location.back();
+  togglePaidCreditsVisibility(status?: PaidStatus) {
+    this.retrieveCredits(status);
+    this.ref.markForCheck();
   }
 
+  payDebt(creditData: Credit) {
+    const dialogRef = this.dialogService.showCustomDialog(ConfirmPaymentComponent, creditData);
+    dialogRef.afterClosed().subscribe(() => {
+      this.retrieveCredits('unpaid');
+      this.ref.markForCheck();
+    });
+  }
+
+  goBack() {
+    this.location.back();
+  }
 }

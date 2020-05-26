@@ -20,8 +20,8 @@ a {
   text-transform: uppercase;
   font-size: $fs-14;
   font-weight: bold;
-  color: mat-color($accent,600);
-  &:hover{
-    color: mat-color($accent,800);
+  color: mat-color($accent, 600);
+  &:hover {
+    color: mat-color($accent, 800);
   }
 }

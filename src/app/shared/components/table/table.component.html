@@ -1,12 +1,16 @@
 <div class="znb-table">
   <div class="znb-table-header">
     <ng-container *ngIf="!mobileQuery.matches; else mobileHeader">
-      <div *ngFor="let field of fieldDefinitions" class="znb-table-header-cell" [ngStyle]="{ width: field.width }">
+      <div
+        *ngFor="let field of fieldDefinitions"
+        class="znb-table-header-cell"
+        [ngStyle]="{ width: field.width }"
+      >
         {{ field.title }}
       </div>
     </ng-container>
     <ng-template #mobileHeader>
-      {{headerMobileTitle}}
+      {{ headerMobileTitle }}
     </ng-template>
   </div>
   <div class="znb-table-banner-message" *ngIf="bannerMsg">
@@ -19,24 +23,48 @@
   <cdk-virtual-scroll-viewport itemSize="50" class="znb-table-viewport">
     <div *cdkVirtualFor="let row of dataSource; index as idx" class="znb-table-row">
       <ng-container *ngIf="!mobileQuery.matches">
-        <ng-container *ngTemplateOutlet="desktopRowTemplate; context: { row: row, idx: idx }"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="desktopRowTemplate; context: { row: row, idx: idx }"
+        ></ng-container>
       </ng-container>
       <ng-container *ngIf="mobileQuery.matches">
-        <ng-container *ngTemplateOutlet="mobileRowTemplate; context: { row: row, idx: idx }"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="mobileRowTemplate; context: { row: row, idx: idx }"
+        ></ng-container>
       </ng-container>
     </div>
   </cdk-virtual-scroll-viewport>
 </div>
 
 <ng-template #mobileRowTemplate let-row="row" let-idx="idx">
-  <div *ngFor="let field of fieldDefinitions" class="znb-table-row-cell" [ngStyle]="{ width: '100%' }">
-    <div class="znb-table-row-cell-name" >{{field.title}}</div>
-    <div class="znb-table-row-cell-value" ><ng-container *ngTemplateOutlet="templateDefinitions[field.templateName]; context: { field: field, row: row, idx: idx }"></ng-container></div>
+  <div
+    *ngFor="let field of fieldDefinitions"
+    class="znb-table-row-cell"
+    [ngStyle]="{ width: '100%' }"
+  >
+    <div class="znb-table-row-cell-name">{{ field.title }}</div>
+    <div class="znb-table-row-cell-value">
+      <ng-container
+        *ngTemplateOutlet="
+          templateDefinitions[field.templateName];
+          context: { field: field, row: row, idx: idx }
+        "
+      ></ng-container>
+    </div>
   </div>
 </ng-template>
 
 <ng-template #desktopRowTemplate let-row="row" let-idx="idx">
-  <div *ngFor="let field of fieldDefinitions" class="znb-table-row-cell" [ngStyle]="{ width: field.width }">
-    <ng-container *ngTemplateOutlet="templateDefinitions[field.templateName]; context: { field: field, row: row, idx: idx }"></ng-container>
+  <div
+    *ngFor="let field of fieldDefinitions"
+    class="znb-table-row-cell"
+    [ngStyle]="{ width: field.width }"
+  >
+    <ng-container
+      *ngTemplateOutlet="
+        templateDefinitions[field.templateName];
+        context: { field: field, row: row, idx: idx }
+      "
+    ></ng-container>
   </div>
 </ng-template>

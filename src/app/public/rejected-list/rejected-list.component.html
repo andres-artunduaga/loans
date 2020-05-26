@@ -36,13 +36,8 @@
     <!-- Chip Cell: for only display string data in a chip -->
     <ng-template #chipCell let-field="field" let-row="row">
       <mat-chip-list>
-        <mat-chip
-          class="chip chip-color--red"
-        >{{ field.getData(row) }}</mat-chip>
+        <mat-chip class="chip chip-color--red">{{ field.getData(row) }}</mat-chip>
       </mat-chip-list>
     </ng-template>
-
   </div>
 </div>
-
-

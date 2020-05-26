@@ -1,5 +1,11 @@
 <div class="create-user">
-  <mat-icon aria-hidden="false" aria-label="close create user dialog" class="create-user__close" (click)="close()">close</mat-icon>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="close create user dialog"
+    class="create-user__close"
+    (click)="close()"
+    >close</mat-icon
+  >
 
   <div class="title">
     Solicita tu credito
@@ -10,7 +16,12 @@
       <znb-amount-slider (amount)="updateAmountFormValue($event)"></znb-amount-slider>
     </div>
     <div class="wrapper">
-      <form class="form" [formGroup]="createUserForm" #formDirective (ngSubmit)="createUserCredit(formDirective)">
+      <form
+        class="form"
+        [formGroup]="createUserForm"
+        #formDirective
+        (ngSubmit)="createUserCredit(formDirective)"
+      >
         <mat-form-field class="form-group" *ngIf="createUserForm.get('paymentDate') as paymentDate">
           <mat-label>¿Cuando puedes pagar?</mat-label>
           <input
@@ -26,16 +37,16 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-  
+
         <div class="form-group form-group--row">
           <mat-form-field class="name-field" *ngIf="createUserForm.get('name') as name">
             <mat-label>Nombre*</mat-label>
             <input matInput type="text" formControlName="name" />
-            <mat-error *ngIf="name.hasError('required')  && name.touched">
+            <mat-error *ngIf="name.hasError('required') && name.touched">
               Por favor ingrese su nombre
             </mat-error>
           </mat-form-field>
-  
+
           <mat-form-field class="uid-field" *ngIf="createUserForm.get('uid') as uid">
             <mat-label>Cédula*</mat-label>
             <input matInput type="number" formControlName="uid" />
@@ -44,7 +55,7 @@
             </mat-error>
           </mat-form-field>
         </div>
-  
+
         <mat-form-field class="form-group" *ngIf="createUserForm.get('email') as email">
           <mat-label>Correo Electrónico*</mat-label>
           <input matInput type="text" formControlName="email" />
@@ -55,9 +66,16 @@
             Por favor ingrese un correo electronico válido
           </mat-error>
         </mat-form-field>
-        <button class="form-button" type="submit" mat-raised-button color="primary" [disabled]="createUserForm.invalid" >Solicitar</button>
+        <button
+          class="form-button"
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="createUserForm.invalid"
+        >
+          Solicitar
+        </button>
       </form>
     </div>
   </div>
-
 </div>

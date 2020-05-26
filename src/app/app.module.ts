@@ -9,7 +9,12 @@ import { environment } from 'environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, CoreModule.forRoot(environment)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CoreModule.forRoot(environment),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

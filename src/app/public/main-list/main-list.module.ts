@@ -6,16 +6,9 @@ import { SharedModule } from '@shared/shared.module';
 import { MainListRoutingModule } from 'app/public/main-list/main-list-routing.module';
 import { MainListComponent } from 'app/public/main-list/main-list.component';
 
-
 @NgModule({
   declarations: [MainListComponent],
-  providers: [
-    DialogService
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    MainListRoutingModule
-  ]
+  providers: [DialogService],
+  imports: [CommonModule, SharedModule, MainListRoutingModule],
 })
-export class MainListModule { }
+export class MainListModule {}

@@ -11,13 +11,10 @@ describe('RejectedListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RejectedListComponent ],
-      providers:[
-        { provide: ENVIRONMENT, useValue: {} }
-      ],
-      imports:[SharedModule, HttpClientTestingModule]
-    })
-    .compileComponents();
+      declarations: [RejectedListComponent],
+      providers: [{ provide: ENVIRONMENT, useValue: {} }],
+      imports: [SharedModule, HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -5,12 +5,16 @@
         <mat-icon>keyboard_backspace</mat-icon>
         Regresa
       </div>
-      <div class="title__main">
-        Hola {{user?.name}}
-      </div>
+      <div class="title__main">Hola {{ user?.name }}</div>
       <span class="title__secondary"> Aqui puedes ver tu historial de creditos </span>
     </div>
-    <button class="title__button" mat-fab matTooltip="Solicita un nuevo credito" (click)="addCredit()" [disabled]="!canAcquireNewCredit()" >
+    <button
+      class="title__button"
+      mat-fab
+      matTooltip="Solicita un nuevo credito"
+      (click)="addCredit()"
+      [disabled]="!canAcquireNewCredit()"
+    >
       <mat-icon>add</mat-icon>
     </button>
   </div>
@@ -50,18 +54,24 @@
             'chip-color--na': field.getData(row) === 'N/A',
             'chip-color--paid': field.getData(row) === 'Pagado',
             'chip-color--unpaid': field.getData(row) === 'No Pagado'
-          }">{{ field.getData(row) }}</mat-chip>
+          }"
+          >{{ field.getData(row) }}</mat-chip
+        >
       </mat-chip-list>
     </ng-template>
 
     <!-- Action Cell: contain action buttons -->
     <ng-template #actionCell let-field="field" let-row="row">
       <div class="actions">
-        <button (click)="payDebt(row)" mat-mini-fab matTooltip="Pagar credito" [disabled]="row.paid || !canAcquireNewCredit()">
+        <button
+          (click)="payDebt(row)"
+          mat-mini-fab
+          matTooltip="Pagar credito"
+          [disabled]="row.paid || !canAcquireNewCredit()"
+        >
           <mat-icon>payment</mat-icon>
         </button>
       </div>
     </ng-template>
   </div>
 </div>
-

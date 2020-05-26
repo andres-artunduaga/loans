@@ -11,15 +11,14 @@ describe('ConfirmPaymentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmPaymentComponent ],
+      declarations: [ConfirmPaymentComponent],
       providers: [
         { provide: ENVIRONMENT, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },
       ],
-      imports: [ HttpClientTestingModule ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

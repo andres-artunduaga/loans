@@ -7,16 +7,14 @@ import { HOME } from '@core/constants/paths';
   selector: 'znb-logo',
   templateUrl: './logo.component.html',
   styleUrls: ['./logo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
+  @Input() size = '30px';
 
-  @Input() size = "30px";
+  constructor(private route: Router) {}
 
-  constructor( private route: Router ){}
-
-  goToHome(){
+  goToHome() {
     this.route.navigate([HOME]);
   }
-
 }

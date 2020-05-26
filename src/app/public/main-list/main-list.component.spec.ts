@@ -13,11 +13,10 @@ describe('MainListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainListComponent ],
+      declarations: [MainListComponent],
       providers: [DialogService, { provide: ENVIRONMENT, useValue: {} }],
-      imports: [SharedModule, HttpClientTestingModule, RouterTestingModule]
-    })
-    .compileComponents();
+      imports: [SharedModule, HttpClientTestingModule, RouterTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

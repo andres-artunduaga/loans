@@ -1,8 +1,8 @@
-@import "~styles/styles";
+@import '~styles/styles';
 .rejected-list {
   display: flex;
   flex-direction: column;
-  height: calc(100% - ( #{$header-height} + #{$footer-height} ));
+  height: calc(100% - (#{$header-height} + #{$footer-height}));
   padding: 50px 70px;
 
   .header {
@@ -26,7 +26,7 @@
       }
     }
 
-    &__title{
+    &__title {
       font-size: $fs-36;
       font-weight: bold;
       font-family: $family-secondary;
@@ -36,40 +36,40 @@
   }
 
   .container {
-      display: flex;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    &__table {
       height: 100%;
-      flex-direction: column;
-      &__table {
-        height: 100%;
-      }
+    }
 
-      .chip {
-        &-color{
-          &--red{
-            background-color: mat-color($warn);
-            color: $white;
-          }
+    .chip {
+      &-color {
+        &--red {
+          background-color: mat-color($warn);
+          color: $white;
         }
       }
+    }
   }
 }
 
-@include lt-small(){
+@include lt-small() {
   .rejected-list {
     padding: 20px 16px;
     .header {
       margin: 0;
-      &__title{
+      &__title {
         display: none;
       }
-      &__back{
+      &__back {
         margin-bottom: 10px;
         font-size: $fs-16;
       }
     }
 
     .container {
-      height: calc(100vh - 120px - ( #{$header-height} + #{$footer-height} ));
+      height: calc(100vh - 120px - (#{$header-height} + #{$footer-height}));
     }
   }
 }

@@ -1,8 +1,8 @@
 <div class="amount-slider">
   <div class="content">
     <div class="header">
-      <div class="title">{{message}}</div>
-      <div class="amount">${{amountValue | number}}</div>
+      <div class="title">{{ message }}</div>
+      <div class="amount">${{ amountValue | number }}</div>
     </div>
     <mat-slider
       class="slider"
@@ -11,7 +11,8 @@
       tickInterval="1"
       [min]="minLoan"
       [max]="maxLoan"
-      (input)="onChange($event)">
+      (input)="onChange($event)"
+    >
     </mat-slider>
   </div>
 </div>

@@ -1,8 +1,8 @@
-@import "~styles/styles";
+@import '~styles/styles';
 .user-detail {
   display: flex;
   flex-direction: column;
-  height: calc(100% - ( #{$header-height} + #{$footer-height} ));
+  height: calc(100% - (#{$header-height} + #{$footer-height}));
   padding: 30px 50px;
 
   .header {
@@ -11,7 +11,7 @@
     justify-content: space-between;
     margin: 30px 0;
 
-    .title{
+    .title {
       display: flex;
       flex-direction: column;
       &__main {
@@ -21,7 +21,7 @@
         font-family: $family-secondary;
         color: mat-color($primary);
       }
-      &__secondary{
+      &__secondary {
         margin-top: 10px;
         font-size: $fs-24;
         font-weight: bold;
@@ -41,53 +41,53 @@
         }
       }
     }
-
   }
 
   .container {
-      display: flex;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    &__table {
       height: 100%;
-      flex-direction: column;
-      &__table {
-        height: 100%;
+    }
+    .actions {
+      display: flex;
+      button {
+        margin: 0 3px;
       }
-      .actions{
-        display: flex;
-        button {
-          margin: 0 3px;
-        }
-      }
+    }
 
-      .chip {
-        &-color{
-          &--na{
-            background-color: mat-color($accent, 300);
-            color: $white;
-          }
-          &--paid{
-            background-color: mat-color($mat-green, 600);
-            color: $white;
-          }
-          &--unpaid{
-            background-color: mat-color($warn);
-            color: $white;
-          }
+    .chip {
+      &-color {
+        &--na {
+          background-color: mat-color($accent, 300);
+          color: $white;
+        }
+        &--paid {
+          background-color: mat-color($mat-green, 600);
+          color: $white;
+        }
+        &--unpaid {
+          background-color: mat-color($warn);
+          color: $white;
         }
       }
+    }
   }
 }
 
-@include lt-small(){
+@include lt-small() {
   .user-detail {
     padding: 20px 16px;
     .header {
       margin: 0;
-      .title{
+      .title {
         &__back {
           font-size: $fs-16;
           margin-bottom: 10px;
         }
-        &__main, &__secondary {
+        &__main,
+        &__secondary {
           display: none;
         }
         &__button {
@@ -100,7 +100,7 @@
     }
 
     .container {
-      height: calc(100vh - 120px - ( #{$header-height} + #{$footer-height} ));
+      height: calc(100vh - 120px - (#{$header-height} + #{$footer-height}));
     }
   }
 }

@@ -15,7 +15,12 @@ describe('PublicLayoutComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PublicLayoutComponent],
       providers: [{ provide: ENVIRONMENT, useValue: {} }],
-      imports: [SharedModule, BrowserAnimationsModule, HttpClientTestingModule, RouterTestingModule],
+      imports: [
+        SharedModule,
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+      ],
     }).compileComponents();
   }));
 

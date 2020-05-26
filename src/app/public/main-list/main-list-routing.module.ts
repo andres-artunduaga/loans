@@ -3,14 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainListComponent } from 'app/public/main-list/main-list.component';
 
-
-const routes: Routes = [{
-  path: '',
-  component: MainListComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: MainListComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MainListRoutingModule { }
+export class MainListRoutingModule {}

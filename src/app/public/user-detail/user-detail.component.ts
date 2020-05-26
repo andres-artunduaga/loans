@@ -14,11 +14,10 @@ import { NewCreditComponent } from '../dialogs/new-credit/new-credit.component';
   selector: 'znb-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserDetailComponent implements OnInit {
-
-  fieldDefinitions:ZNBTableFieldDefinition<Credit>[] = [
+  fieldDefinitions: ZNBTableFieldDefinition<Credit>[] = [
     {
       field: 'index',
       title: '#',
@@ -43,14 +42,15 @@ export class UserDetailComponent implements OnInit {
     {
       field: 'status',
       title: 'Estado',
-      getData: credit => credit.status === "approved" ? "Aprobado" : "Rechazado",
+      getData: credit => (credit.status === 'approved' ? 'Aprobado' : 'Rechazado'),
       width: '20%',
       templateName: 'regularCell',
     },
     {
       field: 'paid',
       title: 'Estado de pago',
-      getData: credit =>  credit.status === "approved" ? credit.paid ? "Pagado" : "No Pagado" : "N/A",
+      getData: credit =>
+        credit.status === 'approved' ? (credit.paid ? 'Pagado' : 'No Pagado') : 'N/A',
       width: '20%',
       templateName: 'chipCell',
     },
@@ -61,66 +61,59 @@ export class UserDetailComponent implements OnInit {
       width: '200px',
       templateName: 'actionCell',
     },
-  ]
+  ];
 
-  user:User;
+  user: User;
 
   constructor(
-    private route:ActivatedRoute,
-    private userService:UserService,
-    private ref:ChangeDetectorRef,
-    private location:Location,
-    private dialogService:DialogService,
-  ){}
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private ref: ChangeDetectorRef,
+    private location: Location,
+    private dialogService: DialogService,
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      params => {
-        const userId:number = params?.id;
-        if(userId){
-          this.retrieveUserData(userId);
-        }
+    this.route.params.subscribe(params => {
+      const userId: number = params?.id;
+      if (userId) {
+        this.retrieveUserData(userId);
       }
-    );
+    });
     this.ref.markForCheck();
   }
 
-  retrieveUserData(userId:number){
-    this.userService.getUserCredits(userId).subscribe(
-      user => {
-        this.user = user;
-        console.log("user", this.user);
-        this.ref.markForCheck();
-      }
-    );
+  retrieveUserData(userId: number) {
+    this.userService.getUserCredits(userId).subscribe(user => {
+      this.user = user;
+      console.log('user', this.user);
+      this.ref.markForCheck();
+    });
   }
 
-
-  payDebt(creditData:Credit){
+  payDebt(creditData: Credit) {
     const dialogRef = this.dialogService.showCustomDialog(ConfirmPaymentComponent, creditData);
     dialogRef.afterClosed().subscribe(() => {
-      if(this.user?.id){
+      if (this.user?.id) {
         this.retrieveUserData(this.user.id);
       }
     });
   }
 
-  addCredit(){
+  addCredit() {
     const dialogRef = this.dialogService.showCustomDialog(NewCreditComponent, this.user);
     dialogRef.afterClosed().subscribe(() => {
-      if(this.user?.id){
+      if (this.user?.id) {
         this.retrieveUserData(this.user.id);
       }
     });
   }
 
-  canAcquireNewCredit():boolean {
-    return this.user?.status === "approved";
+  canAcquireNewCredit(): boolean {
+    return this.user?.status === 'approved';
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
-
-
 }

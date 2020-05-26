@@ -1,8 +1,8 @@
-@import "~styles/styles";
+@import '~styles/styles';
 .approved-list {
   display: flex;
   flex-direction: column;
-  height: calc(100% - ( #{$header-height} + #{$footer-height} ));
+  height: calc(100% - (#{$header-height} + #{$footer-height}));
   padding: 50px 70px;
 
   .header {
@@ -26,7 +26,7 @@
       }
     }
 
-    &__title{
+    &__title {
       font-size: $fs-36;
       font-weight: bold;
       font-family: $family-secondary;
@@ -37,64 +37,63 @@
       display: flex;
       align-self: flex-end;
       margin-top: 20px;
-      &__item{
+      &__item {
         margin-left: 10px;
       }
     }
   }
 
   .container {
-      display: flex;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    &__table {
       height: 100%;
-      flex-direction: column;
-      &__table {
-        height: 100%;
+    }
+    .actions {
+      display: flex;
+      button {
+        margin: 0 3px;
       }
-      .actions{
-        display: flex;
-        button {
-          margin: 0 3px;
+    }
+    .chip {
+      &-color {
+        &--paid {
+          background-color: mat-color($mat-green, 600);
+          color: $white;
+        }
+        &--unpaid {
+          background-color: mat-color($warn);
+          color: $white;
         }
       }
-      .chip {
-        &-color{
-          &--paid{
-            background-color: mat-color($mat-green, 600);
-            color: $white;
-          }
-          &--unpaid{
-            background-color: mat-color($warn);
-            color: $white;
-          }
-        }
-      }
+    }
   }
 }
 
-@include lt-small(){
+@include lt-small() {
   .approved-list {
     padding: 20px 16px;
     .header {
       margin: 0;
-      &__title{
+      &__title {
         display: none;
       }
-      &__back{
+      &__back {
         margin-bottom: 5px;
         font-size: $fs-16;
       }
       .buttons {
-
         margin-bottom: 15px;
         align-self: center;
-        &__item{
+        &__item {
           margin: 0 3px;
         }
       }
     }
 
     .container {
-      height: calc(100vh - 180px - ( #{$header-height} + #{$footer-height} ));
+      height: calc(100vh - 180px - (#{$header-height} + #{$footer-height}));
     }
   }
 }

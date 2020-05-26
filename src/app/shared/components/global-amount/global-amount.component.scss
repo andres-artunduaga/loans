@@ -1,15 +1,15 @@
-@import "~styles/styles";
+@import '~styles/styles';
 
 .global-amount {
   margin: 0 20px;
-  .total{
+  .total {
     color: mat-color($orange, A200);
     font-weight: bold;
   }
 }
 
-@include lt-small(){
-  .global-amount{
+@include lt-small() {
+  .global-amount {
     margin: 0 10px;
     font-size: $fs-14;
   }

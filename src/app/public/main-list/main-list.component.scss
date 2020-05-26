@@ -1,8 +1,8 @@
-@import "~styles/styles";
+@import '~styles/styles';
 .main-list {
   display: flex;
   flex-direction: column;
-  height: calc(100% - ( #{$header-height} + #{$footer-height} ));
+  height: calc(100% - (#{$header-height} + #{$footer-height}));
   padding: 50px 70px;
 
   .header {
@@ -11,7 +11,7 @@
     justify-content: space-between;
     margin: 30px 0;
 
-    &__title{
+    &__title {
       font-size: $fs-36;
       font-weight: bold;
       font-family: $family-secondary;
@@ -20,40 +20,40 @@
   }
 
   .container {
-      display: flex;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    &__table {
       height: 100%;
-      flex-direction: column;
-      &__table {
-        height: 100%;
+    }
+    .actions {
+      display: flex;
+      button {
+        margin: 0 3px;
       }
-      .actions{
-        display: flex;
-        button {
-          margin: 0 3px;
-        }
-      }
+    }
 
-      .chip {
-        &-color{
-          &--approved{
-            background-color: mat-color($mat-green, 600);
-            color: $white;
-          }
-          &--rejected{
-            background-color: mat-color($warn);
-            color: $white;
-          }
+    .chip {
+      &-color {
+        &--approved {
+          background-color: mat-color($mat-green, 600);
+          color: $white;
+        }
+        &--rejected {
+          background-color: mat-color($warn);
+          color: $white;
         }
       }
+    }
   }
 }
 
-@include lt-small(){
+@include lt-small() {
   .main-list {
     padding: 20px 16px;
     .header {
       margin: 0;
-      &__title{
+      &__title {
         display: none;
       }
       &__button {
@@ -65,7 +65,7 @@
     }
 
     .container {
-      height: calc(100vh - 80px - ( #{$header-height} + #{$footer-height} ));
+      height: calc(100vh - 80px - (#{$header-height} + #{$footer-height}));
     }
   }
 }

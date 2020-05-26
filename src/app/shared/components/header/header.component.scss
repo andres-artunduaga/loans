@@ -1,11 +1,11 @@
-@import "~styles/styles";
+@import '~styles/styles';
 
 .header {
-  &-toolbar{
+  &-toolbar {
     display: flex;
     align-items: center;
     height: $header-height;
-    &__logo{
+    &__logo {
       justify-self: flex-end;
       margin: 5px;
     }

@@ -1,4 +1,4 @@
-import { Location } from "@angular/common";
+import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { Credit } from '@core/models/credit.model';
@@ -9,11 +9,10 @@ import { ZNBTableFieldDefinition } from '@core/types/table.types';
   selector: 'znb-rejected-list',
   templateUrl: './rejected-list.component.html',
   styleUrls: ['./rejected-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RejectedListComponent implements OnInit {
-
-  fieldDefinitions:ZNBTableFieldDefinition<Credit>[] = [
+  fieldDefinitions: ZNBTableFieldDefinition<Credit>[] = [
     {
       field: 'index',
       title: '#',
@@ -45,35 +44,32 @@ export class RejectedListComponent implements OnInit {
     {
       field: 'status',
       title: 'Estado del credito',
-      getData: credit => credit.status === "approved" ? "Aprobado" : "Rechazado",
+      getData: credit => (credit.status === 'approved' ? 'Aprobado' : 'Rechazado'),
       width: '20%',
       templateName: 'chipCell',
     },
   ];
 
-  credits:Credit[];
+  credits: Credit[];
 
   constructor(
-    private creditService:CreditService,
+    private creditService: CreditService,
     private ref: ChangeDetectorRef,
     private location: Location,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.retrieveCredits();
   }
 
-  retrieveCredits(){
-    this.creditService.getRejectedCreditsWithUsers().subscribe(
-      credits => {
-        this.credits = credits;
-        this.ref.markForCheck();
-      }
-    )
+  retrieveCredits() {
+    this.creditService.getRejectedCreditsWithUsers().subscribe(credits => {
+      this.credits = credits;
+      this.ref.markForCheck();
+    });
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
-
 }

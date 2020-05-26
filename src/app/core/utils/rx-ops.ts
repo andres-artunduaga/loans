@@ -1,4 +1,4 @@
-import { toCamelCase as toCamelCaseFunction } from "@core/utils/object-transformers"
+import { toCamelCase as toCamelCaseFunction } from '@core/utils/object-transformers';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

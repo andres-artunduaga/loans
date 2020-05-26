@@ -9,13 +9,14 @@ import { PublicRoutingModule } from 'app/public/public-routing.module';
 import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
 import { SharedModule } from 'app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [PublicLayoutComponent, CreateUserComponent, UserDetailComponent, NewCreditComponent, ConfirmPaymentComponent],
-  imports: [
-    CommonModule,
-    PublicRoutingModule,
-    SharedModule,
+  declarations: [
+    PublicLayoutComponent,
+    CreateUserComponent,
+    UserDetailComponent,
+    NewCreditComponent,
+    ConfirmPaymentComponent,
   ],
+  imports: [CommonModule, PublicRoutingModule, SharedModule],
 })
-export class PublicModule { }
+export class PublicModule {}

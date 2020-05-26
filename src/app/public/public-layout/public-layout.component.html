@@ -1,11 +1,11 @@
 <div class="public-layout">
   <znb-header class="public-layout__header">
-    <button mat-icon-button (click)="sidenav.toggle()" >
+    <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
   </znb-header>
   <mat-sidenav-container class="public-layout__container" opened>
-    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" >
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'">
       <znb-navigation></znb-navigation>
     </mat-sidenav>
     <!-- </mat-sidenav-content> -->
@@ -13,4 +13,3 @@
   </mat-sidenav-container>
   <znb-footer></znb-footer>
 </div>
-

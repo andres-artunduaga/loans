@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 @mixin media($prop, $width) {
   @media screen and($prop: $width) {

@@ -1,5 +1,11 @@
 <div class="new-credit">
-  <mat-icon aria-hidden="false" aria-label="close create user dialog" class="new-credit__close" (click)="close()">close</mat-icon>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="close create user dialog"
+    class="new-credit__close"
+    (click)="close()"
+    >close</mat-icon
+  >
 
   <div class="title">
     Solicita tu credito
@@ -9,7 +15,12 @@
       <znb-amount-slider (amount)="updateAmountFormValue($event)"></znb-amount-slider>
     </div>
     <div class="wrapper">
-      <form class="form" [formGroup]="newCreditForm" #formDirective (ngSubmit)="createUserCredit(formDirective)">
+      <form
+        class="form"
+        [formGroup]="newCreditForm"
+        #formDirective
+        (ngSubmit)="createUserCredit(formDirective)"
+      >
         <mat-form-field class="form-group" *ngIf="newCreditForm.get('paymentDate') as paymentDate">
           <mat-label>¿Cuando puedes pagar?</mat-label>
           <input
@@ -25,9 +36,16 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <button class="form-button" type="submit" mat-raised-button color="primary" [disabled]="newCreditForm.invalid" >Solicitar</button>
+        <button
+          class="form-button"
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="newCreditForm.invalid"
+        >
+          Solicitar
+        </button>
       </form>
     </div>
   </div>
 </div>
-

@@ -20,19 +20,19 @@ export class TransactionsService {
   serviceEndpoint = 'transactions';
 
   constructor(private envService: EnvironmentService, private api: ApiService) {
-    this._globalAmount$ = new BehaviorSubject<number>(this.envService.getEnvironment().initialAmount);
+    this._globalAmount$ = new BehaviorSubject<number>(
+      this.envService.getEnvironment().initialAmount,
+    );
     this.globalAmount$ = this._globalAmount$.asObservable();
-    this.getLatestTx().subscribe(
-      tx => {
-        this._globalAmount$.next(tx[0].total);
-      }
-    )
+    this.getLatestTx().subscribe(tx => {
+      this._globalAmount$.next(tx[0].total);
+    });
   }
 
   // Add or Reduce the amount of money only if its an approved transaction
-  private calculateNewAmount(type: TxType, amount: number, status:TxStatus): number {
+  private calculateNewAmount(type: TxType, amount: number, status: TxStatus): number {
     let total = this._globalAmount$.value;
-    if( status === "approved" ){
+    if (status === 'approved') {
       if (type === 'credit') {
         total -= amount;
       } else if (type === 'payment') {
@@ -42,15 +42,14 @@ export class TransactionsService {
     return total;
   }
 
-  createTxFromCredit(credit:Credit){
-
-    const type:TxType = credit.paid ? "payment" : "credit";
-    const status:TxStatus = credit.status;
+  createTxFromCredit(credit: Credit) {
+    const type: TxType = credit.paid ? 'payment' : 'credit';
+    const status: TxStatus = credit.status;
     const amount = credit.amount;
     const total = this.calculateNewAmount(type, amount, status);
 
-    if ( total < 0 ){
-      throw throwError("Unable to perform transaction: insufficient balance");
+    if (total < 0) {
+      throw throwError('Unable to perform transaction: insufficient balance');
     }
     const transaction: Transaction = {
       timestamp: Date.now(),
@@ -59,16 +58,19 @@ export class TransactionsService {
       status,
       total,
     };
-    return this.api.post<Transaction>(this.serviceEndpoint, transaction).pipe(tap(tx => this.updateTotal(tx.total)));
+    return this.api
+      .post<Transaction>(this.serviceEndpoint, transaction)
+      .pipe(tap(tx => this.updateTotal(tx.total)));
   }
 
-  updateTotal(total:number){
-    console.log("Updating total...");
+  updateTotal(total: number) {
+    console.log('Updating total...');
     this._globalAmount$.next(total);
   }
 
-  getLatestTx(){
-    return this.api.get<Transaction[]>(`${this.serviceEndpoint}?_sort=timestamp&_order=desc&_start=0&_end=1`);
+  getLatestTx() {
+    return this.api.get<Transaction[]>(
+      `${this.serviceEndpoint}?_sort=timestamp&_order=desc&_start=0&_end=1`,
+    );
   }
-
 }

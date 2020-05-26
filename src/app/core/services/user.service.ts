@@ -17,12 +17,13 @@ export class UserService {
     return this.api.get<User[]>(`${this.serviceEndpoint}`).pipe(toCamelCase());
   }
 
-  saveUser(user: User):Observable<User>{
-    return this.api.post<User>(`${this.serviceEndpoint}`, user ).pipe(toCamelCase());
+  saveUser(user: User): Observable<User> {
+    return this.api.post<User>(`${this.serviceEndpoint}`, user).pipe(toCamelCase());
   }
 
-  getUserCredits(userId:number): Observable<User> {
-    return this.api.get<User>(`${this.serviceEndpoint}/${userId}?_embed=credits`).pipe(toCamelCase());
+  getUserCredits(userId: number): Observable<User> {
+    return this.api
+      .get<User>(`${this.serviceEndpoint}/${userId}?_embed=credits`)
+      .pipe(toCamelCase());
   }
-
 }

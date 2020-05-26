@@ -6,14 +6,9 @@ import { SharedModule } from '@shared/shared.module';
 import { ApprovedListRoutingModule } from 'app/public/approved-list/approved-list-routing.module';
 import { ApprovedListComponent } from 'app/public/approved-list/approved-list.component';
 
-
 @NgModule({
   declarations: [ApprovedListComponent],
   providers: [DialogService],
-  imports: [
-    CommonModule,
-    ApprovedListRoutingModule,
-    SharedModule,
-  ]
+  imports: [CommonModule, ApprovedListRoutingModule, SharedModule],
 })
-export class ApprovedListModule { }
+export class ApprovedListModule {}

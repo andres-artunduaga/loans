@@ -15,12 +15,12 @@
     position: absolute;
     top: -10px;
     right: -10px;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
 
-  .title{
+  .title {
     font-size: $fs-24;
     font-weight: bold;
     color: mat-color($primary);
@@ -30,9 +30,8 @@
     margin: 30px 0;
   }
 
-
   .wrapper {
-    .form{
+    .form {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -42,7 +41,7 @@
         margin-top: 20px;
         width: 100%;
 
-        &--row{
+        &--row {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -56,9 +55,7 @@
             width: 100%;
             margin-left: 10px;
           }
-
         }
-
       }
 
       &-button {
@@ -71,14 +68,10 @@
       display: flex;
       flex-direction: column;
     }
-
   }
-
-
 }
-@include lt-small(){
+@include lt-small() {
   .create-user {
-
     border-radius: 0;
     position: fixed;
     top: 0;
@@ -107,11 +100,12 @@
     }
 
     .wrapper {
-      .form{
+      .form {
         &-group {
-          &--row{
+          &--row {
             flex-direction: column;
-            .name-field, .uid-field {
+            .name-field,
+            .uid-field {
               margin: 0;
             }
           }

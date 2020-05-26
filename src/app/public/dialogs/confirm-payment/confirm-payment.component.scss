@@ -15,12 +15,12 @@
     position: absolute;
     top: -10px;
     right: -10px;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
 
-  .title{
+  .title {
     font-size: $fs-24;
     font-weight: bold;
     color: mat-color($primary);
@@ -50,7 +50,7 @@
   }
 }
 
-@include lt-small(){
+@include lt-small() {
   .confirm-payment {
     border-radius: 0;
     position: fixed;
@@ -66,7 +66,7 @@
       color: $white;
     }
 
-    .title{
+    .title {
       font-size: $fs-18;
       color: mat-color($primary);
       background-color: mat-color($primary);

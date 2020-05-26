@@ -12,7 +12,11 @@
       <button class="buttons__item" mat-raised-button (click)="togglePaidCreditsVisibility('paid')">
         Solo Pagados
       </button>
-      <button class="buttons__item" mat-raised-button (click)="togglePaidCreditsVisibility('unpaid')">
+      <button
+        class="buttons__item"
+        mat-raised-button
+        (click)="togglePaidCreditsVisibility('unpaid')"
+      >
         Sin Pagar
       </button>
     </div>
@@ -53,18 +57,24 @@
           [ngClass]="{
             'chip-color--paid': row?.paid,
             'chip-color--unpaid': !row?.paid
-          }">{{ field.getData(row) }}</mat-chip>
+          }"
+          >{{ field.getData(row) }}</mat-chip
+        >
       </mat-chip-list>
     </ng-template>
 
     <!-- Action Cell: contain action buttons -->
     <ng-template #actionCell let-field="field" let-row="row">
       <div class="actions">
-        <button (click)="payDebt(row)" mat-mini-fab matTooltip="Pagar credito" [disabled]="row.paid" >
+        <button
+          (click)="payDebt(row)"
+          mat-mini-fab
+          matTooltip="Pagar credito"
+          [disabled]="row.paid"
+        >
           <mat-icon>payment</mat-icon>
         </button>
       </div>
     </ng-template>
   </div>
 </div>
-

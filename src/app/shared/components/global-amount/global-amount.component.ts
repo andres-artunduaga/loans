@@ -9,21 +9,14 @@ import { TransactionsService } from '@core/services/transactions.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GlobalAmountComponent implements OnInit {
+  total: number;
 
-  total:number;
-
-  constructor(
-    private txService: TransactionsService,
-    private ref: ChangeDetectorRef,
-  ){ }
+  constructor(private txService: TransactionsService, private ref: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.txService.globalAmount$.subscribe(
-      amount => {
-        this.total = amount;
-        this.ref.markForCheck();
-      }
-    )
+    this.txService.globalAmount$.subscribe(amount => {
+      this.total = amount;
+      this.ref.markForCheck();
+    });
   }
-
 }

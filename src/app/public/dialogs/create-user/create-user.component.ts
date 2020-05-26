@@ -19,9 +19,8 @@ import { switchMap } from 'rxjs/operators';
 export class CreateUserComponent {
   createUserForm: FormGroup;
 
-
-  minDate:Date;
-  maxDate:Date;
+  minDate: Date;
+  maxDate: Date;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -31,11 +30,9 @@ export class CreateUserComponent {
     private userService: UserService,
     private creditService: CreditService,
   ) {
-
-
     this.minDate = new Date();
     this.maxDate = new Date();
-    this.maxDate.setMonth(this.maxDate.getMonth()+MAX_MONTHS_FOR_PAYMENT);
+    this.maxDate.setMonth(this.maxDate.getMonth() + MAX_MONTHS_FOR_PAYMENT);
 
     this.createUserForm = this.fb.group({
       name: [, [Validators.required]],
@@ -46,26 +43,25 @@ export class CreateUserComponent {
     });
   }
 
-  createUserCredit( formDirective: FormGroupDirective ) {
-    if ( this.createUserForm.valid ) {
+  createUserCredit(formDirective: FormGroupDirective) {
+    if (this.createUserForm.valid) {
       const { user, credit } = this.processFormValue(this.createUserForm.value);
 
       // We are assuming an ideal world where every users have different uid ( cedula )
       // A validation must be done in backend side to avoid register users with same uid
-      this.userService.saveUser(user).pipe(
-        switchMap(
-          userData => {
-            return this.creditService.saveCredit({...credit, userId: userData.id})
-          }
+      this.userService
+        .saveUser(user)
+        .pipe(
+          switchMap(userData => {
+            return this.creditService.saveCredit({ ...credit, userId: userData.id });
+          }),
         )
-      ).subscribe(
-        _ => {
+        .subscribe(_ => {
           this.createUserForm.reset();
           // Dirty hack to reset the form directive => https://github.com/angular/components/issues/4190
-          formDirective.reset()
+          formDirective.reset();
           this.close();
-        }
-      );
+        });
     }
   }
 
@@ -74,17 +70,17 @@ export class CreateUserComponent {
     const { amount, paymentDate } = formData;
 
     // Simulation of approved/rejected loans
-    const status = getRandomBoolean() ? "approved" : "rejected";
+    const status = getRandomBoolean() ? 'approved' : 'rejected';
 
     const user: User = { name, uid, email, status };
     const credit: Credit = {
       amount: amount * 1000,
       paymentDate,
       paid: false,
-      status
+      status,
     };
 
-    return { user, credit }
+    return { user, credit };
   }
 
   updateAmountFormValue(value: number) {

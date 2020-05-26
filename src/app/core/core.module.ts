@@ -8,19 +8,13 @@ import { Environment } from 'environments/environment';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-  ],
+  imports: [CommonModule, HttpClientModule],
 })
 export class CoreModule {
-  static forRoot(environment: Environment): ModuleWithProviders{
+  static forRoot(environment: Environment): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [
-        ApiService,
-        {provide: ENVIRONMENT, useValue: environment}
-      ],
-    }
+      providers: [ApiService, { provide: ENVIRONMENT, useValue: environment }],
+    };
   }
 }
