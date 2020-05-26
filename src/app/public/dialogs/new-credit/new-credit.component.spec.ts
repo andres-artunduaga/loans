@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { ENVIRONMENT } from '@core/constants/tokens';
-import { NewCreditComponent } from './new-credit.component';
+import { NewCreditComponent } from 'app/public/dialogs/new-credit/new-credit.component';
 
 describe('NewCreditComponent', () => {
   let component: NewCreditComponent;

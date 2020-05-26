@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { LogoComponent } from './logo.component';
+import { LogoComponent } from '@shared/components/logo/logo.component';
 
 describe('LogoComponent', () => {
   let component: LogoComponent;

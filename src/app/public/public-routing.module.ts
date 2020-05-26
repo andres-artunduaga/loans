@@ -7,7 +7,7 @@ import {
   REJECTED_CREDITS,
   USER_DETAIL,
 } from '@core/constants/paths';
-import { PublicLayoutComponent } from './public-layout/public-layout.component';
+import { PublicLayoutComponent } from 'app/public/public-layout/public-layout.component';
 
 const routes: Routes = [
   {

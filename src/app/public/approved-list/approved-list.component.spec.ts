@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { DialogService } from '@core/services/dialog.service';
 import { SharedModule } from '@shared/shared.module';
-import { ApprovedListComponent } from './approved-list.component';
+import { ApprovedListComponent } from 'app/public/approved-list/approved-list.component';
 
 describe('ApprovedListComponent', () => {
   let component: ApprovedListComponent;

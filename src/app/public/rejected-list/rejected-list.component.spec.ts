@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { SharedModule } from '@shared/shared.module';
-import { RejectedListComponent } from './rejected-list.component';
+import { RejectedListComponent } from 'app/public/rejected-list/rejected-list.component';
 
 describe('RejectedListComponent', () => {
   let component: RejectedListComponent;

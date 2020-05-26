@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AmountSliderComponent } from './amount-slider.component';
+import { AmountSliderComponent } from '@shared/components/amount-slider/amount-slider.component';
 
 describe('AmountSliderComponent', () => {
   let component: AmountSliderComponent;

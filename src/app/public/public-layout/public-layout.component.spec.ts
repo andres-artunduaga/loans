@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { SharedModule } from '@shared/shared.module';
-import { PublicLayoutComponent } from './public-layout.component';
+import { PublicLayoutComponent } from 'app/public/public-layout/public-layout.component';
 
 describe('PublicLayoutComponent', () => {
   let component: PublicLayoutComponent;

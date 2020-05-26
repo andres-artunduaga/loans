@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { Credit } from '@core/models/credit.model';
 import { ApiService } from '@core/services/api.service';
+import { TransactionsService } from '@core/services/transactions.service';
 import { PaidStatus } from '@core/types/credit.types';
 import { toCamelCase } from '@core/utils/rx-ops';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { TransactionsService } from './transactions.service';
 
 @Injectable({
   providedIn: 'root'

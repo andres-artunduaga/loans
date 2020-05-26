@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { ENVIRONMENT } from '@core/constants/tokens';
-import { TransactionsService } from './transactions.service';
+import { TransactionsService } from '@core/services/transactions.service';
 
 describe('TransactionsService', () => {
   let service: TransactionsService;

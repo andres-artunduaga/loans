@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { ApiService } from './api.service';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { ApiService } from '@core/services/api.service';
 import { Environment } from 'environments/environment';
-import { ENVIRONMENT } from '../constants/tokens';
 
 describe('ApiService', () => {
   let service: ApiService;

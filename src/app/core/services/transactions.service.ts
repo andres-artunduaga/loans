@@ -4,7 +4,7 @@ import { Credit } from '@core/models/credit.model';
 import { Transaction } from '@core/models/transaction.model';
 import { ApiService } from '@core/services/api.service';
 import { TxStatus, TxType } from '@core/types/transaction.types';
-import { EnvironmentService } from './environment.service';
+import { EnvironmentService } from '@core/services/environment.service';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { tap } from 'rxjs/operators';
 

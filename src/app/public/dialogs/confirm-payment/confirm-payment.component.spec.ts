@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { ENVIRONMENT } from '@core/constants/tokens';
-import { ConfirmPaymentComponent } from './confirm-payment.component';
+import { ConfirmPaymentComponent } from 'app/public/dialogs/confirm-payment/confirm-payment.component';
 
 describe('ConfirmPaymentComponent', () => {
   let component: ConfirmPaymentComponent;

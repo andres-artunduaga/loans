@@ -7,7 +7,7 @@ import { PublicLayoutComponent } from 'app/public/public-layout/public-layout.co
 import { PublicRoutingModule } from 'app/public/public-routing.module';
 import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
 import { SharedModule } from 'app/shared/shared.module';
-import { ConfirmPaymentComponent } from './dialogs/confirm-payment/confirm-payment.component';
+import { ConfirmPaymentComponent } from 'app/public/dialogs/confirm-payment/confirm-payment.component';
 
 
 @NgModule({

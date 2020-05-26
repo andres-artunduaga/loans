@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UserDetailComponent } from './user-detail.component';
+import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
 
 
 

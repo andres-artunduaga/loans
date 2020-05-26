@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RejectedListComponent } from './rejected-list.component';
+import { RejectedListComponent } from 'app/public/rejected-list/rejected-list.component';
 
 
 const routes: Routes = [{

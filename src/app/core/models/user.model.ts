@@ -1,7 +1,7 @@
 // id field will be used automatically by the database server
 
+import { Credit } from '@core/models/credit.model';
 import { CreditStatus } from '@core/types/credit.types';
-import { Credit } from './credit.model';
 
 export interface User {
   id?: number,

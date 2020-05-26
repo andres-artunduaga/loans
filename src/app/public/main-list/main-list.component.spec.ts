@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { DialogService } from '@core/services/dialog.service';
 import { SharedModule } from '@shared/shared.module';
-import { MainListComponent } from './main-list.component';
+import { MainListComponent } from 'app/public/main-list/main-list.component';
 
 describe('MainListComponent', () => {
   let component: MainListComponent;

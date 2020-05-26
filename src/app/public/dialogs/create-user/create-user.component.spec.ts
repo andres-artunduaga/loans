@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { ENVIRONMENT } from '@core/constants/tokens';
-import { CreateUserComponent } from './create-user.component';
+import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.component';
 
 describe('CreateUserComponent', () => {
   let component: CreateUserComponent;

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EnvironmentService } from './environment.service';
+import { ENVIRONMENT } from '@core/constants/tokens';
+import { EnvironmentService } from '@core/services/environment.service';
 import { Environment } from 'environments/environment';
-import { ENVIRONMENT } from '../constants/tokens';
 
 describe('EnvironmentService', () => {
   let service: EnvironmentService;
