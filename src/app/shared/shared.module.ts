@@ -17,11 +17,11 @@ import { RouterModule } from '@angular/router';
 
 import { AmountSliderComponent } from '@shared/components/amount-slider/amount-slider.component';
 import { FooterComponent } from '@shared/components/footer/footer.component';
+import { GlobalAmountComponent } from '@shared/components/global-amount/global-amount.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { LogoComponent } from '@shared/components/logo/logo.component';
 import { NavigationComponent } from '@shared/components/navigation/navigation.component';
 import { TableComponent } from '@shared/components/table/table.component';
-import { GlobalAmountComponent } from '@shared/components/global-amount/global-amount.component';
 
 const materialModules = [
   ScrollingModule,

@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ENVIRONMENT } from '@core/constants/tokens';
 import { DialogService } from '@core/services/dialog.service';
 import { SharedModule } from '@shared/shared.module';
-import { of } from 'rxjs';
 import { UserDetailComponent } from 'app/public/user-detail/user-detail.component';
+import { of } from 'rxjs';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
