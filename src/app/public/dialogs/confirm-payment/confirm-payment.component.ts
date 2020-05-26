@@ -20,7 +20,6 @@ export class ConfirmPaymentComponent {
     private creditService: CreditService,
   ) {
     this.credit = this.data;
-    console.log(this.credit);
   }
 
   payCredit() {

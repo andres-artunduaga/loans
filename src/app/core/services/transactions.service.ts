@@ -49,7 +49,7 @@ export class TransactionsService {
     const total = this.calculateNewAmount(type, amount, status);
 
     if (total < 0) {
-      throw throwError('Unable to perform transaction: insufficient balance');
+      return throwError('TransactionService:: Unable to perform transaction, insufficient balance');
     }
     const transaction: Transaction = {
       timestamp: Date.now(),
@@ -64,7 +64,6 @@ export class TransactionsService {
   }
 
   updateTotal(total: number) {
-    console.log('Updating total...');
     this._globalAmount$.next(total);
   }
 

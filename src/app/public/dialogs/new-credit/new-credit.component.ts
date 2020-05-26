@@ -44,6 +44,10 @@ export class NewCreditComponent {
         // Dirty hack to reset the form directive => https://github.com/angular/components/issues/4190
         formDirective.reset();
         this.close();
+      }, err => {
+        // TODO: Notify User
+        console.log(err)
+        this.close();
       });
     }
   }

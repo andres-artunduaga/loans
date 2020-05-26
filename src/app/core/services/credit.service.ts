@@ -5,8 +5,9 @@ import { ApiService } from '@core/services/api.service';
 import { TransactionsService } from '@core/services/transactions.service';
 import { PaidStatus } from '@core/types/credit.types';
 import { toCamelCase } from '@core/utils/rx-ops';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root',
@@ -34,16 +35,28 @@ export class CreditService {
   }
 
   saveCredit(credit: Credit): Observable<Credit> {
-    return this.api.post<Credit>(`${this.serviceEndpoint}`, credit).pipe(
-      tap(crd => this.txService.createTxFromCredit(crd).subscribe(_ => {})),
-      toCamelCase(),
-    );
+    return this.txService.createTxFromCredit(credit).pipe(
+      switchMap(tx => {
+        return this.api.post<Credit>(`${this.serviceEndpoint}`, credit);
+      }),
+      catchError(err => {
+        // If this section is reachead is because an error thrown by txService
+        // Which indicate there is not enough funds to make a credit
+        return throwError(err);
+      }),
+    ).pipe(toCamelCase());
   }
 
   updateCreditPayment(credit: Credit): Observable<Credit> {
-    return this.api.put<Credit>(`${this.serviceEndpoint}/${credit.id}`, credit).pipe(
-      tap(crd => this.txService.createTxFromCredit(crd).subscribe(_ => {})),
-      toCamelCase(),
-    );
+    return this.txService.createTxFromCredit(credit).pipe(
+      switchMap(tx => {
+        return this.api.put<Credit>(`${this.serviceEndpoint}/${credit.id}`, credit);
+      }),
+      catchError(err => {
+        // Very unlikely to reach an error from txService, usually in this case
+        // The transaction will increase the total amount instead of reduce it
+        return throwError(err);
+      }),
+    ).pipe(toCamelCase());
   }
 }
