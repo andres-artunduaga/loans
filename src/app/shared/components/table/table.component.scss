@@ -102,11 +102,12 @@
     .znb-table {
       &-row {
         flex-direction: column;
+        border-bottom: 2px solid mat-color($accent, 200);
         &-cell {
           padding-left: 0;
           display: flex;
           justify-content: space-between;
-          padding: 0;
+          padding: 5px;
 
           &:nth-child(odd) {
             background-color: mat-color($accent, 50);
