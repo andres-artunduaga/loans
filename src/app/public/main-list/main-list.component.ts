@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { USER_DETAIL } from '@core/constants/paths';
 import { User } from '@core/models/user.model';
 import { DialogService } from '@core/services/dialog.service';
+import { TransactionsService } from '@core/services/transactions.service';
 import { UserService } from '@core/services/user.service';
 import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { CreateUserComponent } from 'app/public/dialogs/create-user/create-user.component';
@@ -61,16 +62,26 @@ export class MainListComponent implements OnInit {
   ];
 
   users: User[];
+  canAddUsers = false;
 
   constructor(
     private dialogService: DialogService,
     private userService: UserService,
     private ref: ChangeDetectorRef,
     private router: Router,
+    private txService: TransactionsService,
   ) {}
 
   ngOnInit(): void {
+    this.checkGlobalAmount();
     this.retrieveUsers();
+  }
+
+  checkGlobalAmount() {
+    this.txService.globalAmount$.subscribe(amount => {
+      this.canAddUsers = amount > 0;
+      this.ref.markForCheck();
+    });
   }
 
   retrieveUsers() {

@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Credit } from '@core/models/credit.model';
 import { User } from '@core/models/user.model';
 import { DialogService } from '@core/services/dialog.service';
+import { TransactionsService } from '@core/services/transactions.service';
 import { UserService } from '@core/services/user.service';
 import { ZNBTableFieldDefinition } from '@core/types/table.types';
 import { ConfirmPaymentComponent } from '../dialogs/confirm-payment/confirm-payment.component';
@@ -65,6 +66,7 @@ export class UserDetailComponent implements OnInit {
 
   user: User;
   hasUnpaidCredits = true;
+  enoughFunds = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -72,9 +74,11 @@ export class UserDetailComponent implements OnInit {
     private ref: ChangeDetectorRef,
     private location: Location,
     private dialogService: DialogService,
+    private txService: TransactionsService
   ) {}
 
   ngOnInit(): void {
+    this.checkGlobalAmount();
     this.route.params.subscribe(params => {
       const userId: number = params?.id;
       if (userId) {
@@ -82,6 +86,13 @@ export class UserDetailComponent implements OnInit {
       }
     });
     this.ref.markForCheck();
+  }
+
+  checkGlobalAmount() {
+    this.txService.globalAmount$.subscribe(amount => {
+      this.enoughFunds = amount > 0;
+      this.ref.markForCheck();
+    });
   }
 
   checkIfHasUnpaidCredits(user:User):boolean{

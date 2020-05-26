@@ -1,7 +1,7 @@
 <div class="main-list">
   <div class="header">
     <span class="header__title"> Listado de usuarios</span>
-    <button class="header__button" mat-fab matTooltip="Agregar nuevo usuario" (click)="addUser()">
+    <button class="header__button" mat-fab matTooltip="Agregar nuevo usuario" (click)="addUser()" [disabled]="!canAddUsers">
       <mat-icon>add</mat-icon>
     </button>
   </div>
