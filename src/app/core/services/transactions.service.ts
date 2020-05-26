@@ -25,7 +25,9 @@ export class TransactionsService {
     );
     this.globalAmount$ = this._globalAmount$.asObservable();
     this.getLatestTx().subscribe(tx => {
-      this._globalAmount$.next(tx[0].total);
+      if( tx.length && tx[0].total){
+        this._globalAmount$.next(tx[0].total);
+      }
     });
   }
 
@@ -58,9 +60,13 @@ export class TransactionsService {
       status,
       total,
     };
-    return this.api
-      .post<Transaction>(this.serviceEndpoint, transaction)
-      .pipe(tap(tx => this.updateTotal(tx.total)));
+    return this.api.post<Transaction>(this.serviceEndpoint, transaction).pipe(
+      tap(tx => {
+        if (tx.total) {
+          this.updateTotal(tx.total);
+        }
+      }),
+    );
   }
 
   updateTotal(total: number) {
