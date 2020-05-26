@@ -17,6 +17,7 @@ export class TableComponent {
   @Input() zeroStateIcon = 'error_outline';
   @Input() zeroStateMsg = 'No hay datos disponibles';
   @Input() bannerMsg = '';
+  @Input() headerMobileTitle = 'Listado';
 
   mobileQuery: MediaQueryList;
   // tslint:disable-next-line: variable-name
