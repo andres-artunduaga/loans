@@ -39,7 +39,7 @@ export class RejectedListComponent implements OnInit {
       title: 'Monto Solicitado',
       getData: credit => credit.amount,
       width: '20%',
-      templateName: 'regularCell',
+      templateName: 'moneyCell',
     },
     {
       field: 'status',

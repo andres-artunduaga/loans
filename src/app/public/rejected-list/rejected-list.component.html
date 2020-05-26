@@ -15,7 +15,8 @@
       [templateDefinitions]="{
         indexCell: indexCell,
         regularCell: regularCell,
-        chipCell: chipCell
+        chipCell: chipCell,
+        moneyCell: moneyCell
       }"
       bannerMsg="Esta lista contiene todos los creditos rechazados"
       headerMobileTitle="Listado de creditos rechazados"
@@ -31,6 +32,11 @@
     <!-- Regular Cell: for only display string data -->
     <ng-template #regularCell let-field="field" let-row="row">
       {{ field.getData(row) }}
+    </ng-template>
+
+    <!-- Money Cell: for only display money -->
+    <ng-template #moneyCell let-field="field" let-row="row">
+      ${{ field.getData(row) | number }}
     </ng-template>
 
     <!-- Chip Cell: for only display string data in a chip -->

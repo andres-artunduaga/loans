@@ -37,7 +37,7 @@ export class UserDetailComponent implements OnInit {
       title: 'Monto',
       getData: credit => credit.amount,
       width: '20%',
-      templateName: 'regularCell',
+      templateName: 'moneyCell',
     },
     {
       field: 'status',
