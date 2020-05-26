@@ -1,5 +1,5 @@
 @import "~styles/styles";
-.approved-list {
+.rejected-list {
   display: flex;
   flex-direction: column;
   height: calc(100% - ( #{$header-height} + #{$footer-height} ));
@@ -51,5 +51,25 @@
           }
         }
       }
+  }
+}
+
+@include lt-small(){
+  .rejected-list {
+    padding: 20px 16px;
+    .header {
+      margin: 0;
+      &__title{
+        display: none;
+      }
+      &__back{
+        margin-bottom: 10px;
+        font-size: $fs-16;
+      }
+    }
+
+    .container {
+      height: calc(100vh - 120px - ( #{$header-height} + #{$footer-height} ));
+    }
   }
 }
