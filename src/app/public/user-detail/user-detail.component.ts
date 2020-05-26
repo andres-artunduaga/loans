@@ -64,6 +64,7 @@ export class UserDetailComponent implements OnInit {
   ];
 
   user: User;
+  hasUnpaidCredits = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -83,10 +84,17 @@ export class UserDetailComponent implements OnInit {
     this.ref.markForCheck();
   }
 
+  checkIfHasUnpaidCredits(user:User):boolean{
+    if(user.credits){
+      return user.credits.some( credit => !credit.paid );
+    }
+    return false;
+  }
+
   retrieveUserData(userId: number) {
     this.userService.getUserCredits(userId).subscribe(user => {
       this.user = user;
-      console.log('user', this.user);
+      this.hasUnpaidCredits = this.checkIfHasUnpaidCredits(user);
       this.ref.markForCheck();
     });
   }

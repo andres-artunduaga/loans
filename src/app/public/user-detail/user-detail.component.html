@@ -13,7 +13,7 @@
       mat-fab
       matTooltip="Solicita un nuevo credito"
       (click)="addCredit()"
-      [disabled]="!canAcquireNewCredit()"
+      [disabled]="!canAcquireNewCredit() || hasUnpaidCredits"
     >
       <mat-icon>add</mat-icon>
     </button>
